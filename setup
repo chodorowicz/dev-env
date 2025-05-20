@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# BASH_SOURCE[0] has the path of the script that is being executed
+script_dir=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
+echo "script_dir: $script_dir"
+
+# get the filter from the command line
+filter="$1"
+
+# find all scripts in the setup-scripts directory
+scripts=$(find ./setup-scripts -maxdepth 1 -type f)
+
+# run each script in the setup-scripts directory
+for script in $scripts; do
+  # if a filter is provided, only run scripts that contain the filter
+  if [ -n "$filter" ]; then
+    # if the script does not contain the filter, skip it
+    if echo "$script" | grep -qv "$filter"; then
+      continue
+    fi
+  fi
+  echo "Running script: $script"
+  . "$script"
+done
