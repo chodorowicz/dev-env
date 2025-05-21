@@ -10,7 +10,7 @@ dry="0"
 filter=""
 
 # find all scripts in the setup-scripts directory
-scripts=$(find ./setup-scripts -maxdepth 1 -type f)
+scripts=$(find $script_dir/setup-scripts -maxdepth 1 -type f)
 
 while [[ $# > 0 ]]; do
   if [[ $1 == "--dry" ]]; then
@@ -38,6 +38,9 @@ execute() {
   bash "$@"
 }
 
+# change to the script directory
+pushd $script_dir
+
 # run each script in the setup-scripts directory
 for script in $scripts; do
   # if a filter is provided, only run scripts that contain the filter
@@ -51,3 +54,6 @@ for script in $scripts; do
   log "Running script: $script"
   execute "$script"
 done
+
+# change back to the original directory
+popd
