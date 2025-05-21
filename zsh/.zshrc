@@ -8,7 +8,6 @@ source "$HOME/dotfiles/zsh/config.zsh"
 source "$HOME/dotfiles/zsh/plugins/plugins-zplug.zsh"
 
 source "$HOME/dotfiles/zsh/functions.zsh"
-source "$HOME/dotfiles/zsh/aliases.zsh"
 
 if [ -f ~/.fzf.zsh ]; then
 	source "$HOME/.fzf.zsh"
@@ -16,11 +15,6 @@ else
 	echo "fzf.zsh not found, please install fzf and keybindings"
 	$(brew --prefix)/opt/fzf/install
 fi
-
-source "$HOME/dotfiles/zsh/functions/kill-process.zsh"
-source "$HOME/dotfiles/zsh/functions/find-path.zsh"
-source "$HOME/dotfiles/zsh/functions/better-mv.zsh"
-source "$HOME/dotfiles/zsh/functions/wait-for-docker.zsh"
 
 # Starship
 export STARSHIP_CONFIG="$HOME/dotfiles/starship.toml"
