@@ -1,0 +1,125 @@
+[user]
+	name = {{name}}
+	email = {{email}}
+	signingkey = {{signingkey}}
+
+[core]
+	ignorecase = false # better for case-sensitive filesystems
+	editor = code --wait
+	excludesfile = ~/.gitignore_global
+
+[push]
+	# "push the current branch back to the branch whose changes are usually integrated into the current branch"
+	# "refuse to push if the upstream branch's name is different from the local one"
+	# https://git-scm.com/docs/git-config#git-config-pushdefault
+	default = current
+
+	# https://git-scm.com/docs/git-config#git-config-pushfollowTags
+	followTags = false
+
+[merge]
+	tool = Kaleidoscope
+
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path "$MERGED" -- "$LOCAL" "$REMOTE"
+	path = /usr/local/bin
+	prompt = false
+
+[diff]
+	tool = Kaleidoscope
+	# Use patience algorithm for better diffs
+	algorithm = patience
+	# Show function context in diffs
+	funcname = ^[[:alpha:]$_].*[^:]$
+
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path "$MERGED" -- "$LOCAL" "$REMOTE"
+	path = /usr/local/bin
+	prompt = false
+
+[commit]
+	gpgsign = true
+
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[status]
+	# Sometimes a newly-added folder, since it's only one line in git status, can slip under the radar.
+	# https://git-scm.com/docs/git-config#git-config-statusshowUntrackedFiles
+	showUntrackedFiles = all
+
+[transfer]
+	# To combat repository corruption!
+	# Note: this global option applies during receive and transmit
+	# https://git-scm.com/docs/git-config#git-config-transferfsckObjects
+	# via https://groups.google.com/forum/#!topic/binary-transparency/f-BI4o8HZW0
+	fsckobjects = true
+
+[log]
+	decorate = full
+	# Always decorate `git log`
+
+[rebase]
+	# will automatically stash and unstash the working directory before and after rebases. This makes it possible to rebase with changes in the repo.
+	autostash = true
+
+[stash]
+	# A recent addition to git which defaults the -p flag to `git stash show`; meaning `git stash show` shows the diff from that stash (should really be default...)
+	showPatch = true
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
+[alias]
+	# View the current working tree status using the short format
+	s = status -s
+
+	# View abbreviated SHA, description, and history graph of the latest 20 commits
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+
+	# Show the diff between the latest commit and the current state
+	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+
+	# Add all changes
+	aa = add -A
+
+	# list branches sorted by last modified
+	b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+
+	# reset hard
+	rh = reset --hard
+
+	pl = pull
+	ps = push
+	c = checkout
+	pushf = push --force-with-lease
+
+	# Undo last commit but keep changes
+	undo = reset --soft HEAD^
+
+[tag]
+	forceSignAnnotated = true
+
+[branch]
+	# https://stackoverflow.com/questions/5480069/autosetuprebase-vs-autosetupmerge
+	# each branch should use rebase instead of pull as default
+	autosetuprebase = always
+	# autosetupmerge controls whether git branch and git checkout -b imply the --track option, i.e. with your setting of always,
+	autosetupmerge = false
+
+[fetch]
+	prune = true
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = true
+	showRebaseProgress = true
+
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f

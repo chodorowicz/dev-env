@@ -1,2 +1,18 @@
 [homebrew.files]
 "homebrew/base.Brewfile"="~/Brewfile"
+
+[git.files]
+"git/.gitconfig"="~/.gitconfig"
+
+[zsh.files]
+"zsh/.zshrc"="~/.zshrc"
+"zsh/.zprofile"="~/.zprofile"
+"zsh/.zshenv"="~/.zshenv"
+
+
+[husky.files]
+"husky/init.sh"="~/.config/husky/init.sh"
+"husky/.huskyrc"="~/.huskyrc"
+
+[settings]
+default_target_type = "template"

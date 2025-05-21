@@ -6,9 +6,4 @@ if ! command -v brew &>/dev/null; then
 fi
 
 brew install dotter
-
-## Install all dotfiles
-dotter deploy
-
-## Install all brew packages
-brew bundle --file=$HOME/Brewfile
+brew install --cask 1password
