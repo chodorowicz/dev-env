@@ -4,11 +4,39 @@
 script_dir=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
 echo "script_dir: $script_dir"
 
+dry="0"
+
 # get the filter from the command line
-filter="$1"
+filter=""
 
 # find all scripts in the setup-scripts directory
 scripts=$(find ./setup-scripts -maxdepth 1 -type f)
+
+while [[ $# > 0 ]]; do
+  if [[ $1 == "--dry" ]]; then
+    dry="1"
+  else
+    filter="$1"
+  fi
+  shift
+done
+
+log() {
+  if [[ $dry == "1" ]]; then
+    echo "[DRY RUN]: $@"
+  else
+    echo "$@"
+  fi
+}
+
+execute() {
+  log "Executing: $@"
+  if [[ $dry == "1" ]]; then
+    return
+  fi
+
+  bash "$@"
+}
 
 # run each script in the setup-scripts directory
 for script in $scripts; do
@@ -19,6 +47,7 @@ for script in $scripts; do
       continue
     fi
   fi
-  echo "Running script: $script"
-  . "$script"
+
+  log "Running script: $script"
+  execute "$script"
 done
