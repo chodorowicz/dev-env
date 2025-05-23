@@ -2,12 +2,12 @@
 #  can also be edited using select-word-style
 WORDCHARS=${WORDCHARS//[\/-]/}.
 
-source "$HOME/dotfiles/zsh/config.zsh"
+source "$HOME/.config/zsh/config.zsh"
 
 # zplug
-source "$HOME/dotfiles/zsh/plugins/plugins-zplug.zsh"
+source "$HOME/.config/zsh/plugins-zplug.zsh"
 
-source "$HOME/dotfiles/zsh/functions.zsh"
+source "$HOME/.config/zsh/functions.zsh"
 
 if [ -f ~/.fzf.zsh ]; then
 	source "$HOME/.fzf.zsh"

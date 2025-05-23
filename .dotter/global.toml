@@ -8,7 +8,9 @@
 "zsh/.zshrc"="~/.zshrc"
 "zsh/.zprofile"="~/.zprofile"
 "zsh/.zshenv"="~/.zshenv"
-
+"zsh/config/config.zsh"="~/.config/zsh/config.zsh"
+"zsh/config/functions.zsh"="~/.config/zsh/functions.zsh"
+"zsh/config/plugins-zplug.zsh"="~/.config/zsh/plugins-zplug.zsh"
 
 [husky.files]
 "husky/init.sh"="~/.config/husky/init.sh"
