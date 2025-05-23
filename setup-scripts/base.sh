@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # install homebrew if it is not already installed
-if ! command -v brew &>/dev/null; then
+if [ -d "/opt/homebrew/bin" ]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
