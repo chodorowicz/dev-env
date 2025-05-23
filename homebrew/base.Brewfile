@@ -40,7 +40,6 @@ cask "proxyman"
 cask "tableplus"
 
 # utilities
-cask "paletro"
 cask "rectangle-pro"
 cask "pixelsnap"
 cask "alt-tab"
