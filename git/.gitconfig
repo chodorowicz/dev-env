@@ -28,7 +28,7 @@
 [diff]
 	tool = Kaleidoscope
 	# Use patience algorithm for better diffs
-	algorithm = patience
+	algorithm = histogram
 	# Show function context in diffs
 	funcname = ^[[:alpha:]$_].*[^:]$
 
