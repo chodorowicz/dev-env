@@ -88,7 +88,7 @@ N   M  ,   .     J  K  L    U  I  O    P  ;   /  ]    [      '   H   Y    \\`;
 	]);
 }
 
-writeToProfile("Default", [
+writeToProfile("Default profile", [
 	basicModifiers(),
 	// navigateWithFunction(),
 	rightCommandToCommandTab(),

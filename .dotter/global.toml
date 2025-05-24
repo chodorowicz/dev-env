@@ -19,5 +19,8 @@
 [ssh.files]
 "ssh/config"="~/.ssh/config"
 
+[asdf.files]
+"asdf/.tool-versions"="~/.tool-versions"
+
 [settings]
 default_target_type = "template"
