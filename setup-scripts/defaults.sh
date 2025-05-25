@@ -28,6 +28,9 @@ defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write com.apple.AppleMultitouchTrackpad "Clicking" -bool true
 
 # Increase tracking speed
+# https://www.reddit.com/r/macbook/comments/1bytv0r/exceeding_the_trackpad_speed_slider/
+# this setting is stored in ~/Library/Preferences/.GlobalPreferences.plist
+# view with: plutil -p ~/Library/Preferences/.GlobalPreferences.plist
 defaults write -g com.apple.trackpad.scaling -float 2.8
 
 # Activate new settings
