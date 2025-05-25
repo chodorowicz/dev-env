@@ -21,7 +21,7 @@ killall Finder
 # Three finger drag
 # https://macos-defaults.com/trackpad/trackpadthreefingerdrag.html
 defaults write com.apple.AppleMultitouchTrackpad "TrackpadThreeFingerDrag" -bool true
-defaults write com.apple.AppleMultitouchTrackpad "Dragging" -bool true
+defaults write com.apple.AppleMultitouchTrackpad "Dragging" -bool false
 
 # Tap to click
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
