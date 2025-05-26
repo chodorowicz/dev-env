@@ -42,7 +42,7 @@ cask "tableplus"
 # utilities
 cask "rectangle-pro"
 cask "pixelsnap"
-cask "alt-tab"
+cask "alt-tab"2
 cask "default-folder-x"
 cask "istat-menus"
 cask "MonitorControl"
@@ -57,6 +57,7 @@ cask "karabiner-elements"
 cask "maccy"
 cask "jordanbaird-ice"
 cask "soundsource"
+cask "homerow"
 
 # productivity apps
 cask "todoist"
