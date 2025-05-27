@@ -42,7 +42,7 @@ cask "tableplus"
 # utilities
 cask "rectangle-pro"
 cask "pixelsnap"
-cask "alt-tab"2
+cask "alt-tab"
 cask "default-folder-x"
 cask "istat-menus"
 cask "MonitorControl"
@@ -80,6 +80,7 @@ cask "vivaldi"
 cask "opera"
 cask "firefox"
 cask "microsoft-edge"
+cask "zen"
 ## cask "zen-browser" # this is alpha channel
 
 # various tools
@@ -87,6 +88,7 @@ mas "Dropover - Easier Drag & Drop", id: 1355679052
 mas "MeetingBar", id: 1532419400
 mas "Reeder", id: 1529448980
 mas "Gestimer 2", id: 6447125648
+mas "Vejla", id: 1607635845
 cask "numi" # Calculator
 cask "transmit" # FTP
 cask "muzzle" # Mute notifications
