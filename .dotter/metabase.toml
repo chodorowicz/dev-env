@@ -1,0 +1,6 @@
+[homebrew.files."homebrew/base.Brewfile"]
+target = "~/Brewfile"
+type= "template"
+append = """
+{{ include_template "homebrew/metabase.Brewfile" }}
+"""

@@ -95,6 +95,8 @@ cask "transmit" # FTP
 cask "muzzle" # Mute notifications
 cask "permute" # Video converter
 cask "houdahspot" # Spotlight alternative
+cask "handbrake"
+cask "mullvadvpn"
 
 ## Not used anymore ##
 # cask "miro" # Whiteboard # browser version is fine (better for some things)
