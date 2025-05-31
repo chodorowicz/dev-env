@@ -1,5 +1,10 @@
 ##!/usr/bin/env bash
 
+## Sounds
+
+# Disable audio feedback
+defaults write com.apple.sound.beep.feedback -bool false
+
 ### Dock
 
 # autohide dock
