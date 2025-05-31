@@ -30,3 +30,5 @@ export PATH=$PATH:"$HOME/.cargo/bin"
 if [[ $(uname -m) == 'arm64' ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
+
+alias python='python3'
