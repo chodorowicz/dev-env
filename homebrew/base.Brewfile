@@ -24,6 +24,7 @@ brew "ripgrep"
 brew "gh" # GitHub CLI
 brew "rustup"
 brew "lsd" # ls replacement
+brew "ack"
 brew "dotter"
 cask "postman"
 cask "rapidapi"
