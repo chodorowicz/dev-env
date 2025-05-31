@@ -9,6 +9,7 @@ cask "trae"
 cask "zed"
 brew "micro" # text editor
 cask "iterm2"
+cask "itermai"
 cask "orbstack"
 brew "pyenv"
 brew "zplug"
@@ -87,7 +88,6 @@ cask "zen"
 
 # various tools
 mas "Dropover - Easier Drag & Drop", id: 1355679052
-mas "MeetingBar", id: 1532419400
 mas "Reeder", id: 1529448980
 mas "Gestimer 2", id: 6447125648
 mas "Vejla", id: 1607635845
