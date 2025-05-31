@@ -9,6 +9,8 @@ source "$HOME/.config/zsh/plugins-zplug.zsh"
 
 source "$HOME/.config/zsh/functions.zsh"
 
+source "$HOME/.config/zsh/aliases.zsh"
+
 if [ -f ~/.fzf.zsh ]; then
 	source "$HOME/.fzf.zsh"
 else

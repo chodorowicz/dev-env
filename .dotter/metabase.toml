@@ -2,5 +2,14 @@
 target = "~/Brewfile"
 type= "template"
 append = """
+
 {{ include_template "homebrew/metabase.Brewfile" }}
+"""
+
+[zsh.files."zsh/zshrc/.zshrc"]
+target = "~/.zshrc"
+type= "template"
+append = """
+
+{{ include_template "zsh/zshrc/metabase.zshrc" }}
 """

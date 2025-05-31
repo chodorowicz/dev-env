@@ -5,12 +5,10 @@
 "git/.gitconfig"="~/.gitconfig"
 
 [zsh.files]
-"zsh/.zshrc"="~/.zshrc"
+"zsh/zshrc/.zshrc"="~/.zshrc"
 "zsh/.zprofile"="~/.zprofile"
 "zsh/.zshenv"="~/.zshenv"
-"zsh/config/config.zsh"="~/.config/zsh/config.zsh"
-"zsh/config/functions.zsh"="~/.config/zsh/functions.zsh"
-"zsh/config/plugins-zplug.zsh"="~/.config/zsh/plugins-zplug.zsh"
+"zsh/config"="~/.config/zsh/"
 
 [husky.files]
 "husky/init.sh"="~/.config/husky/init.sh"
