@@ -40,10 +40,18 @@ export function appsLauncherWithManipulator() {
 					.toVar("app_layer", "s")
 					.toAfterKeyUp(toSetVar("app_layer", 0))
 					.toIfAlone(toApp("Slack")),
+				map("l")
+					.toVar("app_layer", "l")
+					.toAfterKeyUp(toSetVar("app_layer", 0))
+					.toIfAlone(toApp("Linear")),
 				map("m")
 					.toVar("app_layer", "m")
 					.toAfterKeyUp(toSetVar("app_layer", 0))
 					.toIfAlone(toApp("Marvin")),
+				map("n")
+					.toVar("app_layer", "n")
+					.toAfterKeyUp(toSetVar("app_layer", 0))
+					.toIfAlone(toApp("Notion")),
 				map("p")
 					.toVar("app_layer", "p")
 					.toAfterKeyUp(toSetVar("app_layer", 0))
