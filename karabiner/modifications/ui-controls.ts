@@ -31,3 +31,19 @@ export function backAndForth() {
 		]),
 	]);
 }
+
+
+export function togglePanels() {
+	return rule("Toggle panels").manipulators([
+		withModifier("Meh")([
+			withCondition(
+				ifApp({
+					file_paths: ["Code", "Cursor"],
+				})
+			)([
+				map("\\").to("b", ["left_command", "left_option"]),
+				map("'").to("b", ["left_command"]),
+			]),
+		]),
+	]);
+}

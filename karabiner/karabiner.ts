@@ -25,7 +25,7 @@ import {
 import { nextPreviousEntity } from "./modifications/next-previous-entity.ts";
 import { moveMultipleLines } from "./modifications/move-multiple-lines.ts";
 import { raycast } from "./modifications/raycast.ts";
-import { backAndForth } from "./modifications/backAndForth.ts";
+import { backAndForth, togglePanels } from "./modifications/ui-controls.ts";
 import { powerArrowNavigation } from "./modifications/arrow-navigation.ts";
 import { navigationLayer } from "./modifications/window-manager.ts";
 
@@ -108,4 +108,5 @@ writeToProfile("Default profile", [
 	deleteWord(),
 	// numpad(),
 	layer_digitAndDelete(),
+	togglePanels(),
 ]);
