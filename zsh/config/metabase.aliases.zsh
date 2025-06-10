@@ -1,8 +1,8 @@
 function start-postgres() {
-    docker run -d --name metabase-postgres -e \
-        POSTGRES_DB=metabase \
-        POSTGRES_USER=metabase \
-        POSTGRES_PASSWORD=metabase \
+    docker run -d --name metabase-postgres \
+        -e POSTGRES_DB=metabase \
+        -e POSTGRES_USER=metabase \
+        -e POSTGRES_PASSWORD=metabase \
         -p 5432:5432 \
         postgres:latest
 }
@@ -45,7 +45,7 @@ function mb-postgres-config() {
     export MB_DB_TYPE=postgres
     export MB_DB_DBNAME=metabase
     export MB_DB_PORT=5432
-    export MB_DB_USER=postgres
-    export MB_DB_PASS=example_password
+    export MB_DB_USER=metabase
+    export MB_DB_PASS=metabase
     export MB_DB_HOST=localhost
 }
