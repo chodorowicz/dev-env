@@ -27,6 +27,7 @@ brew "rustup"
 brew "lsd" # ls replacement
 brew "ack"
 brew "dotter"
+brew "tailscale"
 cask "postman"
 cask "rapidapi"
 cask "insomnia"
@@ -98,6 +99,7 @@ cask "permute" # Video converter
 cask "houdahspot" # Spotlight alternative
 cask "handbrake"
 cask "mullvadvpn"
+cask "mountain-duck"
 
 ## Not used anymore ##
 # cask "miro" # Whiteboard # browser version is fine (better for some things)
