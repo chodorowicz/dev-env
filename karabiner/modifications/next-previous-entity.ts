@@ -13,7 +13,7 @@ export function nextPreviousEntity() {
 			]),
 			withCondition(
 				ifApp({
-					file_paths: ["Obsidian", "Code", "Cursor"],
+					file_paths: ["Obsidian", "Code", "Cursor", "iTerm"],
 				})
 			)([
 				map("]").to("]", ["left_command", "left_shift"]),
