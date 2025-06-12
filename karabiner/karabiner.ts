@@ -9,6 +9,7 @@ import {
 	duoLayer,
 	withMapper,
 	toKey,
+	mapDoubleTap,
 } from "karabiner_ts";
 import { basicModifiers } from "./modifications/basic-modifiers.ts";
 // import { appsLauncher } from "./modifications/apps-launcher.ts";
@@ -88,6 +89,17 @@ N   M  ,   .     J  K  L    U  I  O    P  ;   /  ]    [      '   H   Y    \\`;
 	]);
 }
 
+// Make a screenshot with double tap 4
+function screenshot() {
+	// return mapDoubleTap("4").to("4", "cmd", "shift").singleTap(toKey("4"));
+	// return map("4").toIfHeldDown("4", "cmd", "shift").singleTap(toKey("4"));
+	return rule("screenshot").manipulators([
+		mapDoubleTap("4").to("4", "⌘⇧").singleTap(toKey("4")).parameters({
+			"basic.to_delayed_action_delay_milliseconds": 100,
+			"basic.to_if_held_down_threshold_milliseconds": 100,
+		}),
+	]);
+}
 writeToProfile("Default profile", [
 	basicModifiers(),
 	// navigateWithFunction(),
@@ -109,4 +121,5 @@ writeToProfile("Default profile", [
 	// numpad(),
 	layer_digitAndDelete(),
 	togglePanels(),
+	screenshot()
 ]);
