@@ -98,7 +98,7 @@ cask "muzzle" # Mute notifications
 cask "permute" # Video converter
 cask "houdahspot" # Spotlight alternative
 cask "handbrake"
-cask "mullvadvpn"
+cask "mullvad-vpn"
 cask "mountain-duck"
 
 ## Not used anymore ##
