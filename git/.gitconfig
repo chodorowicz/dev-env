@@ -6,7 +6,6 @@
 [core]
 	ignorecase = false # better for case-sensitive filesystems
 	editor = code --wait
-	excludesfile = ~/.gitignore_global
 
 [push]
 	# "push the current branch back to the branch whose changes are usually integrated into the current branch"

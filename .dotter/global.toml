@@ -3,6 +3,7 @@
 
 [git.files]
 "git/.gitconfig"="~/.gitconfig"
+"git/config/"="~/.config/git/"
 
 [zsh.files]
 "zsh/zshrc/.zshrc"="~/.zshrc"
