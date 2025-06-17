@@ -17,6 +17,12 @@ export function arrowNavigationJumpWord() {
 			map("k").to(toKey("down_arrow", ["left_option"])),
 			map("l").to(toKey("right_arrow", ["left_option"])),
 		]),
+		withModifier("Meh")([
+			map("i").to(toKey("up_arrow")).to(toKey("up_arrow")).to(toKey("up_arrow")),
+			map("j").to(toKey("left_arrow")).to(toKey("left_arrow")).to(toKey("left_arrow")),
+			map("k").to(toKey("down_arrow")).to(toKey("down_arrow")).to(toKey("down_arrow")),
+			map("l").to(toKey("right_arrow")).to(toKey("right_arrow")).to(toKey("right_arrow")),
+		]),
 	]);
 }
 

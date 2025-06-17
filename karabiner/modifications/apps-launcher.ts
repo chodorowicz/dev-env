@@ -61,9 +61,11 @@ export function appsLauncherWithManipulator() {
           .toAfterKeyUp(toSetVar("app_layer", 0))
           .toIfAlone(toApp("1Password")),
         withCondition(ifVar("app_layer", "f"))([map("o").to(toApp("Fork"))]),
+        withCondition(ifVar("app_layer", "f"))([map("i").to(toApp("Figma"))]),
         withCondition(ifVar("app_layer", "s"))([map("i").to(toApp("Signal"))]),
         withCondition(ifVar("app_layer", "p"))([map("o").to(toApp("Postman"))]),
         withCondition(ifVar("app_layer", "m"))([map("a").to(toApp("Mail"))]),
+        withCondition(ifVar("app_layer", "n"))([map("o").to(toApp("Notion Mail"))]),
       ]),
     ]),
     rule("apps").manipulators([withModifier(["right_command"])(appsConfig())]),

@@ -10,6 +10,7 @@ import {
 	withMapper,
 	toKey,
 	mapDoubleTap,
+	withModifier,
 } from "karabiner_ts";
 import { basicModifiers } from "./modifications/basic-modifiers.ts";
 // import { appsLauncher } from "./modifications/apps-launcher.ts";
@@ -100,6 +101,14 @@ function screenshot() {
 		}),
 	]);
 }
+
+// map meh + d to escape
+function escape() {
+	return rule("escape").manipulators([
+		withModifier("Meh")([map("d").to("escape")]),
+	]);
+}
+
 writeToProfile("Default profile", [
 	basicModifiers(),
 	// navigateWithFunction(),
@@ -107,7 +116,7 @@ writeToProfile("Default profile", [
 	// appsLauncher(),
 	...appsLauncherWithManipulator(),
 	// windowManager(),
-	nextPreviousEntity(),
+	...nextPreviousEntity(),
 	backAndForth(),
 	// moveMultipleLines(),
 	// navigateWithFunctionMore(),
@@ -121,5 +130,6 @@ writeToProfile("Default profile", [
 	// numpad(),
 	layer_digitAndDelete(),
 	togglePanels(),
-	screenshot()
+	screenshot(),
+	escape(),
 ]);

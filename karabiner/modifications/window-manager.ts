@@ -9,6 +9,9 @@ import {
 	toSetVar,
 	withCondition,
 	ifVar,
+	toNotificationMessage,
+	toRemoveNotificationMessage,
+	duoLayer,
 } from "karabiner_ts";
 import { toRectanglePro } from "./helpers/rectangle.ts";
 
@@ -54,6 +57,33 @@ const navigationManipulators = [
 		.singleTap(toKey("delete_or_backspace")),
 ];
 
+export const delayedLayer = rule('delayer-layer').manipulators([
+	map('c')
+    .condition(ifVar('delayed-1').unless())
+    .toIfHeldDown([
+      toSetVar('delayed-1'),
+      toNotificationMessage('delayed-1', '💡 Delayed Layer 1'),
+    ])
+    .toAfterKeyUp([
+      toSetVar('delayed-1', 0),
+      toRemoveNotificationMessage('delayed-1'),
+    ])
+    .toIfAlone('c')
+    .toDelayedAction(
+      [],
+      [
+        toKey('c'),
+        toSetVar('delayed-1', 0),
+        toRemoveNotificationMessage('delayed-1'),
+      ],
+    )
+    .parameters({
+      'basic.to_if_held_down_threshold_milliseconds': 100,
+      'basic.to_delayed_action_delay_milliseconds': 100,
+    }),
+	withCondition(ifVar('delayed-1'))(navigationManipulators),
+]);
+
 export function navigationLayer() {
 	return [
 		layer("tab", "navigate").manipulators([
@@ -61,10 +91,16 @@ export function navigationLayer() {
 			withCondition(ifVar("window_mode"))(windowModeManipulators),
 			withCondition(ifVar("window_mode").unless())(navigationManipulators),
 		]),
-		layer(",", "navigate").manipulators([...windowModeManipulators]),
-		rule("navigate").manipulators([withModifier("fn")(navigationManipulators)]),
+		layer("1", "navigate").manipulators([...navigationManipulators]),
+		layer(",", "navigate").manipulators([...navigationManipulators]),
+		// layer("x", "navigate").manipulators([...windowModeManipulators]),
+		duoLayer("s", "d").manipulators([...navigationManipulators]),
+		duoLayer(";", "spacebar", "arrow keys").manipulators([...navigationManipulators])
+		// rule("navigate").manipulators([withModifier("fn")(navigationManipulators)]),
 		// rule("navigate").manipulators([
 		// 	withModifier("right_option")(navigationManipulators),
 		// ]),
+		// delayedLayer,
+		
 	];
 }
