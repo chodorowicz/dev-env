@@ -27,7 +27,7 @@ brew "rustup"
 brew "lsd" # ls replacement
 brew "ack"
 brew "dotter"
-cask "tailscale"
+cask "tailscale-app"
 cask "postman"
 cask "rapidapi"
 cask "insomnia"
@@ -64,7 +64,7 @@ cask "homerow"
 cask "boltai"
 
 # productivity apps
-cask "todoist"
+cask "todoist-app"
 cask "ticktick"
 cask "typinator"
 cask "marvin"
@@ -97,7 +97,7 @@ cask "transmit" # FTP
 cask "muzzle" # Mute notifications
 cask "permute" # Video converter
 cask "houdahspot" # Spotlight alternative
-cask "handbrake"
+cask "handbrake-app"
 cask "mullvad-vpn"
 cask "mountain-duck"
 
