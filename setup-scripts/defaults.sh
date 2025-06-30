@@ -78,6 +78,12 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # https://www.hexnode.com/mobile-device-management/help/script-to-show-bluetooth-menu-on-status-bar-of-macos-devices/
 defaults write com.apple.controlcenter.plist Bluetooth -int 18 
 
+## Keyboard
+
+# https://macos-defaults.com/keyboard/applefnusagetype.html
+# do nothing
+defaults write com.apple.HIToolbox AppleFnUsageType -int "0"
+
 ## Activate new settings
 /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 
