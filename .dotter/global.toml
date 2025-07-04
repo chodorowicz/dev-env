@@ -1,22 +1,23 @@
 [homebrew.files]
-"homebrew/base.Brewfile"="~/Brewfile"
+"homebrew/base.Brewfile" = "~/Brewfile"
 
 [git.files]
-"git/.gitconfig"="~/.gitconfig"
-"git/config/"="~/.config/git/"
+"git/.gitconfig" = "~/.gitconfig"
+"git/config/" = "~/.config/git/"
 
 [zsh.files]
-"zsh/zshrc/.zshrc"="~/.zshrc"
-"zsh/.zprofile"="~/.zprofile"
-"zsh/.zshenv"="~/.zshenv"
-"zsh/config"="~/.config/zsh/"
+"zsh/zshrc/.zshrc" = "~/.zshrc"
+"zsh/.zprofile" = "~/.zprofile"
+"zsh/.zshenv" = "~/.zshenv"
+"zsh/config" = "~/.config/zsh/"
 
 [husky.files]
-"husky/init.sh"="~/.config/husky/init.sh"
-"husky/.huskyrc"="~/.huskyrc"
+"husky/init.sh" = "~/.config/husky/init.sh"
+"husky/.huskyrc" = "~/.huskyrc"
 
 [ssh.files]
-"ssh/config"="~/.ssh/config"
+# write the ssh config only if it's empty
+"ssh/config" = { type = "template", target = "~/.ssh/config", if = "(command_success 'read_to_str \"~/.ssh/config\" == \"\"')" }
 
 [settings]
 default_target_type = "template"
