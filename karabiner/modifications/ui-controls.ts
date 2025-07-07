@@ -1,37 +1,40 @@
-import { rule, withModifier, withCondition, ifApp, map } from "karabiner_ts";
+import { rule, withModifier, withCondition, ifApp, map, duoLayer } from "karabiner_ts";
 
-export function backAndForth() {
-	return rule("Back and forth").manipulators([
-		withModifier("Meh")([
-			withCondition(
-				ifApp({
-					file_paths: ["Code", "Cursor"],
-				})
-			)([
-				map("=").to("=", ["left_control"]),
-				map("-").to("-", ["left_control"]),
-				map("return_or_enter").to("f12", ["fn"]),
-			]),
-			withCondition(
-				ifApp({
-					file_paths: ["Obsidian"],
-				})
-			)([
-				map("=").to("right_arrow", ["left_command", "left_option"]),
-				map("-").to("left_arrow", ["left_command", "left_option"]),
-			]),
-			withCondition(
-				ifApp({
-					file_paths: ["Slack"],
-				})
-			)([
-				map("=").to("]", ["left_command"]),
-				map("-").to("[", ["left_command"]),
-			]),
+export function backAndForthGeneric(back: string, forth: string) {
+	return [
+		withCondition(
+			ifApp({
+				file_paths: ["Code", "Cursor"],
+			})
+		)([
+			map(forth).to("=", ["left_control"]),
+			map(back).to("-", ["left_control"]),
+			map("return_or_enter").to("f12", ["fn"]),
 		]),
-	]);
+		withCondition(
+			ifApp({
+				file_paths: ["Obsidian"],
+			})
+		)([
+			map(forth).to("right_arrow", ["left_command", "left_option"]),
+			map(back).to("left_arrow", ["left_command", "left_option"]),
+		]),
+		withCondition(
+			ifApp({
+				file_paths: ["Slack"],
+			})
+		)([map(forth).to("]", ["left_command"]), map(back).to("[", ["left_command"])]),
+	];
 }
 
+export function backAndForth() {
+	return [
+		// rule("Next previous entity").manipulators([
+		// 	withModifier("Meh")(entitiesNavigationConfig("[", "]")),
+		// ]),
+		duoLayer("d", "f").manipulators(backAndForthGeneric("j", "k")),
+	];
+}
 
 export function togglePanels() {
 	return rule("Toggle panels").manipulators([

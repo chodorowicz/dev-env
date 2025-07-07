@@ -117,7 +117,7 @@ writeToProfile("Default profile", [
 	...appsLauncherWithManipulator(),
 	// windowManager(),
 	...nextPreviousEntity(),
-	backAndForth(),
+	...backAndForth(),
 	// moveMultipleLines(),
 	// navigateWithFunctionMore(),
 	// raycast(),
