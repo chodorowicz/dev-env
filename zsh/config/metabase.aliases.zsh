@@ -24,6 +24,10 @@ function mb-fe-ee() {
     mb && FS_CACHE=true MB_EDITION=ee yarn build-hot:js-wait
 }
 
+function mb-fe-oss() {
+    mb && FS_CACHE=true MB_EDITION=oss yarn build-hot:js-wait
+}
+
 function mb-ee() {
     mb-postgres-config
     export MB_EDITION='ee'
@@ -33,6 +37,12 @@ function mb-ee() {
     export CYPRESS_ALL_FEATURES_TOKEN=$MB_TOKEN
     export CYPRESS_NO_FEATURES_TOKEN='<another token>'
     clojure -M:run:dev:ee
+}
+
+function mb-oss-empty() {
+    mb-postgres-config
+    export MB_EDITION='oss'
+    clojure -M:run:dev:oss
 }
 
 function mb-ee-empty() {
