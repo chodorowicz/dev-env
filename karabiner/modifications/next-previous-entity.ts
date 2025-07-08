@@ -6,6 +6,7 @@ import {
 	ifApp,
 	duoLayer,
 } from "karabiner_ts";
+import { togglePanelsGeneric } from "./ui-controls.ts";
 
 function entitiesNavigationConfig(previous: string, next: string) {
 	return [
@@ -42,5 +43,6 @@ export function nextPreviousEntity() {
 			withModifier("Meh")(entitiesNavigationConfig("[", "]")),
 		]),
 		duoLayer("d", "f").manipulators(entitiesNavigationConfig("u", "i")),
+		duoLayer("d", "f").manipulators(togglePanelsGeneric("m", ",")),
 	];
 }

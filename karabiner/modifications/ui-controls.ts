@@ -1,4 +1,11 @@
-import { rule, withModifier, withCondition, ifApp, map, duoLayer } from "karabiner_ts";
+import {
+	rule,
+	withModifier,
+	withCondition,
+	ifApp,
+	map,
+	duoLayer,
+} from "karabiner_ts";
 
 export function backAndForthGeneric(back: string, forth: string) {
 	return [
@@ -23,7 +30,10 @@ export function backAndForthGeneric(back: string, forth: string) {
 			ifApp({
 				file_paths: ["Slack"],
 			})
-		)([map(forth).to("]", ["left_command"]), map(back).to("[", ["left_command"])]),
+		)([
+			map(forth).to("]", ["left_command"]),
+			map(back).to("[", ["left_command"]),
+		]),
 	];
 }
 
@@ -33,6 +43,19 @@ export function backAndForth() {
 		// 	withModifier("Meh")(entitiesNavigationConfig("[", "]")),
 		// ]),
 		duoLayer("d", "f").manipulators(backAndForthGeneric("j", "k")),
+	];
+}
+
+export function togglePanelsGeneric(leftPanel: string, rightPanel: string) {
+	return [
+		withCondition(
+			ifApp({
+				file_paths: ["Code", "Cursor"],
+			})
+		)([
+			map(rightPanel).to("b", ["left_command", "left_option"]),
+			map(leftPanel).to("b", ["left_command"]),
+		]),
 	];
 }
 
