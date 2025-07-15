@@ -41,6 +41,7 @@ cask "dash"
 cask "fork"
 cask "proxyman"
 cask "tableplus"
+brew "leiningen"
 
 # utilities
 cask "rectangle-pro"
