@@ -39,6 +39,33 @@ export function rectangleWindowNavigation() {
 	);
 }
 
+function mod(key, mod) {
+	return (
+		map(key)
+			.toIfAlone(key, {}, { halt: true })
+			// .toDelayedAction(toKey("vk_none"), toStickyModifier(mod, "toggle"))
+			.toIfHeldDown(mod, {}, { halt: true })
+			.toDelayedAction(toKey("vk_none"), toKey(key))
+			.parameters({
+				"basic.to_if_held_down_threshold_milliseconds": 200,
+				"basic.to_delayed_action_delay_milliseconds": 250,
+			})
+	);
+}
+const mods = [
+	mod("a", "left_control"),
+	mod("s", "left_option"),
+	mod("d", "left_command"),
+	mod("f", "left_shift"),
+	mod("j", "right_shift"),
+	mod("k", "left_command"),
+	mod("l", "right_option"),
+	mod(";", "right_control"),
+];
+export function homeRowMods() {
+	return rule("homeRowMods").manipulators(withModifier("??")(mods));
+}
+
 const navigationManipulators = [
 	// pass through all modifiers
 	withModifier("??")([
@@ -49,39 +76,41 @@ const navigationManipulators = [
 		map("u").to("delete_or_backspace"),
 		map("o").to("return_or_enter"),
 		map("m").to("delete_forward"),
+		map("8").to("tab"),
 	]),
 
 	// delete word / delete character
 	mapDoubleTap("q", 200)
 		.to("delete_or_backspace", ["left_option"])
 		.singleTap(toKey("delete_or_backspace")),
+
+	map("a").to("left_control"),
+	map("s").to("left_option"),
+	map("d").to("left_command"),
+	map("f").to("left_shift"),
 ];
 
-export const delayedLayer = rule('delayer-layer').manipulators([
-	map('c')
-    .condition(ifVar('delayed-1').unless())
-    .toIfHeldDown([
-      toSetVar('delayed-1'),
-      toNotificationMessage('delayed-1', '💡 Delayed Layer 1'),
-    ])
-    .toAfterKeyUp([
-      toSetVar('delayed-1', 0),
-      toRemoveNotificationMessage('delayed-1'),
-    ])
-    .toIfAlone('c')
-    .toDelayedAction(
-      [],
-      [
-        toKey('c'),
-        toSetVar('delayed-1', 0),
-        toRemoveNotificationMessage('delayed-1'),
-      ],
-    )
-    .parameters({
-      'basic.to_if_held_down_threshold_milliseconds': 100,
-      'basic.to_delayed_action_delay_milliseconds': 100,
-    }),
-	withCondition(ifVar('delayed-1'))(navigationManipulators),
+export const delayedLayer = rule("delayer-layer").manipulators([
+	map("c")
+		.condition(ifVar("delayed-1").unless())
+		.toIfHeldDown([
+			toSetVar("delayed-1"),
+			toNotificationMessage("delayed-1", "💡 Delayed Layer 1"),
+		])
+		.toAfterKeyUp([
+			toSetVar("delayed-1", 0),
+			toRemoveNotificationMessage("delayed-1"),
+		])
+		.toIfAlone("c")
+		.toDelayedAction(
+			[],
+			[
+				toKey("c"),
+				toSetVar("delayed-1", 0),
+				toRemoveNotificationMessage("delayed-1"),
+			]
+		),
+	withCondition(ifVar("delayed-1"))(navigationManipulators),
 ]);
 
 export function navigationLayer() {
@@ -92,15 +121,16 @@ export function navigationLayer() {
 			withCondition(ifVar("window_mode").unless())(navigationManipulators),
 		]),
 		layer("1", "navigate").manipulators([...navigationManipulators]),
-		layer(",", "navigate").manipulators([...navigationManipulators]),
+		layer(";", "navigate").manipulators([...navigationManipulators]),
 		// layer("x", "navigate").manipulators([...windowModeManipulators]),
 		duoLayer("s", "d").manipulators([...navigationManipulators]),
-		duoLayer(";", "spacebar", "arrow keys").manipulators([...navigationManipulators])
+		duoLayer(";", "spacebar", "arrow keys").manipulators([
+			...navigationManipulators,
+		]),
 		// rule("navigate").manipulators([withModifier("fn")(navigationManipulators)]),
 		// rule("navigate").manipulators([
 		// 	withModifier("right_option")(navigationManipulators),
 		// ]),
 		// delayedLayer,
-		
 	];
 }

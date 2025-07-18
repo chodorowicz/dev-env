@@ -11,6 +11,7 @@ import {
 	toKey,
 	mapDoubleTap,
 	withModifier,
+	toStickyModifier,
 } from "karabiner_ts";
 import { basicModifiers } from "./modifications/basic-modifiers.ts";
 // import { appsLauncher } from "./modifications/apps-launcher.ts";
@@ -29,7 +30,10 @@ import { moveMultipleLines } from "./modifications/move-multiple-lines.ts";
 import { raycast } from "./modifications/raycast.ts";
 import { backAndForth, togglePanels } from "./modifications/ui-controls.ts";
 import { powerArrowNavigation } from "./modifications/arrow-navigation.ts";
-import { navigationLayer } from "./modifications/window-manager.ts";
+import {
+	navigationLayer,
+	homeRowMods,
+} from "./modifications/window-manager.ts";
 
 export function deleteWord() {
 	return rule("test").manipulators([
@@ -109,27 +113,36 @@ function escape() {
 	]);
 }
 
-writeToProfile("Default profile", [
-	basicModifiers(),
-	// navigateWithFunction(),
-	rightCommandToCommandTab(),
-	// appsLauncher(),
-	...appsLauncherWithManipulator(),
-	// windowManager(),
-	...nextPreviousEntity(),
-	...backAndForth(),
-	// moveMultipleLines(),
-	// navigateWithFunctionMore(),
-	// raycast(),
-	// arrowNavigation(),
-	// arrowNavigationJumpWord(),
-	// powerArrowNavigation(),
-	rectangleWindowNavigation(),
-	...navigationLayer(),
-	deleteWord(),
-	// numpad(),
-	layer_digitAndDelete(),
-	togglePanels(),
-	screenshot(),
-	escape(),
-]);
+writeToProfile(
+	"Default profile",
+	[
+		basicModifiers(),
+		// navigateWithFunction(),
+		rightCommandToCommandTab(),
+		// appsLauncher(),
+		...appsLauncherWithManipulator(),
+		// windowManager(),
+		...nextPreviousEntity(),
+		backAndForth(),
+		// moveMultipleLines(),
+		// navigateWithFunctionMore(),
+		// raycast(),
+		// arrowNavigation(),
+		// arrowNavigationJumpWord(),
+		// powerArrowNavigation(),
+		rectangleWindowNavigation(),
+		...navigationLayer(),
+		deleteWord(),
+		// numpad(),
+		layer_digitAndDelete(),
+		togglePanels(),
+		screenshot(),
+		escape(),
+		homeRowMods(),
+	],
+	{
+		"basic.to_if_held_down_threshold_milliseconds": 100,
+		"basic.to_delayed_action_delay_milliseconds": 200,
+		"basic.simultaneous_threshold_milliseconds": 50,
+	}
+);
