@@ -12,6 +12,7 @@ import {
 	toNotificationMessage,
 	toRemoveNotificationMessage,
 	duoLayer,
+	mapSimultaneous,
 } from "karabiner_ts";
 import { toRectanglePro } from "./helpers/rectangle.ts";
 
@@ -84,10 +85,12 @@ const navigationManipulators = [
 		.to("delete_or_backspace", ["left_option"])
 		.singleTap(toKey("delete_or_backspace")),
 
-	map("a").to("left_control"),
-	map("s").to("left_option"),
-	map("d").to("left_command"),
-	map("f").to("left_shift"),
+	withModifier("??")([
+		map("a").to("left_control"),
+		map("s").to("left_option"),
+		map("d").to("left_command"),
+		map("f").to("left_shift"),
+	]),
 ];
 
 export const delayedLayer = rule("delayer-layer").manipulators([
@@ -123,7 +126,7 @@ export function navigationLayer() {
 		layer("1", "navigate").manipulators([...navigationManipulators]),
 		layer(";", "navigate").manipulators([...navigationManipulators]),
 		// layer("x", "navigate").manipulators([...windowModeManipulators]),
-		duoLayer("s", "d").manipulators([...navigationManipulators]),
+		// duoLayer("e", "r").manipulators([...navigationManipulators]),
 		duoLayer(";", "spacebar", "arrow keys").manipulators([
 			...navigationManipulators,
 		]),
