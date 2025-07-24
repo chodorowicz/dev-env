@@ -27,6 +27,7 @@ brew "rustup"
 brew "lsd" # ls replacement
 brew "ack"
 brew "dotter"
+brew "httpie"
 cask "tailscale-app"
 cask "postman"
 cask "rapidapi"
