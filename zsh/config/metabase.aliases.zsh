@@ -48,6 +48,11 @@ function mb-oss-empty() {
 function mb-ee-empty() {
     mb-postgres-config
     export MB_EDITION='ee'
+    export MB_PREMIUM_EMBEDDING_TOKEN=
+    export ENTERPRISE_TOKEN=
+    export MB_ENTERPRISE_TOKEN=
+    export CYPRESS_ALL_FEATURES_TOKEN=
+    export CYPRESS_NO_FEATURES_TOKEN=
     clojure -M:run:dev:ee
 }
 
