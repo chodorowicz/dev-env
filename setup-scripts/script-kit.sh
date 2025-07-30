@@ -13,7 +13,7 @@ function init_script_kit() {
   if [ -d $script_kit_dir/copy-markdown-url-and-title ]; then
     pushd $script_kit_dir/copy-markdown-url-and-title
     git sparse-checkout set "script-kit/scripts"
-    git checkout script-kit-copy-url-title
+    git checkout main
     git pull
   fi
 }
