@@ -34,6 +34,15 @@ export function backAndForthGeneric(back: string, forth: string) {
 			map(forth).to("]", ["left_command"]),
 			map(back).to("[", ["left_command"]),
 		]),
+		// Chrome needs plugins to support history tab navigation 2025-07-30
+		withCondition(
+			ifApp({
+				file_paths: ["Google Chrome"],
+			})
+		)([
+			map(forth).to("t", ["left_option"]),
+			map(back).to("t", ["left_option", "left_shift"]),
+		]),
 	];
 }
 
