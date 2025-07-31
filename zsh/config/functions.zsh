@@ -29,3 +29,7 @@ reload() {
   source ~/.zshrc
   source ~/.zshenv
 }
+
+loadEnv() {
+  [ -f .env ] && set -a && source .env && set +a
+}
