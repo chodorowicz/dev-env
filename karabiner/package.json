@@ -1,15 +1,16 @@
 {
-  "name": "karabiner-config",
-  "description": "karabiner config in karabiner.ts",
-  "scripts": {
-    "build": "tsx karabiner.ts",
-    "update": "npm update karabiner.ts"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "karabiner.ts": "latest",
-    "karabiner.ts-greg-mods": "file:../../personal/karabiner.ts-greg-mods",
-    "tsx": "^4",
-    "typescript": "^5"
-  }
+	"name": "karabiner-config",
+	"description": "karabiner config in karabiner.ts",
+	"scripts": {
+		"build": "tsx karabiner.ts",
+		"build:watch": "tsx karabiner.ts --watch",
+		"update": "npm update karabiner.ts"
+	},
+	"devDependencies": {
+		"@types/node": "^20",
+		"karabiner.ts": "latest",
+		"karabiner.ts-greg-mods": "file:../../personal/karabiner.ts-greg-mods",
+		"tsx": "^4",
+		"typescript": "^5"
+	}
 }
