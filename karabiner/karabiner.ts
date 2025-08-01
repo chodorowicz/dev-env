@@ -20,7 +20,7 @@ import {
 	modifierKeyAliases,
 	multiModifierAliases,
 	toRemoveNotificationMessage,
-} from "karabiner_ts";
+} from "karabiner.ts";
 import { basicModifiers } from "./modifications/basic-modifiers.ts";
 // import { appsLauncher } from "./modifications/apps-launcher.ts";
 import {
@@ -42,6 +42,7 @@ import {
 	navigationLayer,
 	homeRowMods,
 } from "./modifications/window-manager.ts";
+import { hrmRule } from "./modifications/hrm.ts";
 
 export function deleteWord() {
 	return rule("test").manipulators([
@@ -202,7 +203,9 @@ writeToProfile(
 		screenshot(),
 		escape(),
 		// rule_duoModifiers(),
-		homeRowMods(),
+		// homeRowMods(),
+		// delayedLayer(),
+		hrmRule,
 	],
 	{
 		"basic.to_if_held_down_threshold_milliseconds": 100,

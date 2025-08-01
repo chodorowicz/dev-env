@@ -5,7 +5,7 @@ import {
 	withModifier,
 	type LetterKeyCode,
 	type ArrowKeyCode,
-} from "karabiner_ts";
+} from "karabiner.ts";
 
 export function navigateWithFunction() {
 	return rule("toggle fn + h/j/k/l to arrow keys").manipulators([

@@ -1,13 +1,13 @@
 import {
-  rule,
-  withModifier,
-  FromModifierParam,
-  map,
-  toApp,
-  toSetVar,
-  ifVar,
-  withCondition,
-} from "karabiner_ts";
+	rule,
+	withModifier,
+	FromModifierParam,
+	map,
+	toApp,
+	toSetVar,
+	ifVar,
+	withCondition,
+} from "karabiner.ts";
 import { appsConfig } from "./apps-config.ts";
 
 export function appsLauncher(modifier: FromModifierParam = "Meh") {

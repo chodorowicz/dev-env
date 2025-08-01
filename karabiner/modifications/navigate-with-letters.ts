@@ -1,4 +1,4 @@
-import { ifDevice, ifVar, map, rule, withMapper } from "karabiner_ts";
+import { ifDevice, ifVar, map, rule, withMapper } from "karabiner.ts";
 
 export function navigateWithLetters() {
 	/** not apple keyboard */

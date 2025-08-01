@@ -13,7 +13,7 @@ import {
 	toRemoveNotificationMessage,
 	duoLayer,
 	mapSimultaneous,
-} from "karabiner_ts";
+} from "karabiner.ts";
 import { toRectanglePro } from "./helpers/rectangle.ts";
 
 // Rectangle window navigation
@@ -57,7 +57,7 @@ const mods = [
 	mod("a", "left_control"),
 	mod("s", "left_option"),
 	mod("d", "left_command"),
-	mod("f", "left_shift"),
+	// mod("f", "left_shift"),
 	mod("j", "right_shift"),
 	mod("k", "left_command"),
 	mod("l", "right_option"),
@@ -93,29 +93,6 @@ const navigationManipulators = [
 	]),
 ];
 
-export const delayedLayer = rule("delayer-layer").manipulators([
-	map("c")
-		.condition(ifVar("delayed-1").unless())
-		.toIfHeldDown([
-			toSetVar("delayed-1"),
-			toNotificationMessage("delayed-1", "💡 Delayed Layer 1"),
-		])
-		.toAfterKeyUp([
-			toSetVar("delayed-1", 0),
-			toRemoveNotificationMessage("delayed-1"),
-		])
-		.toIfAlone("c")
-		.toDelayedAction(
-			[],
-			[
-				toKey("c"),
-				toSetVar("delayed-1", 0),
-				toRemoveNotificationMessage("delayed-1"),
-			]
-		),
-	withCondition(ifVar("delayed-1"))(navigationManipulators),
-]);
-
 export function navigationLayer() {
 	return [
 		layer("tab", "navigate").manipulators([
@@ -126,7 +103,7 @@ export function navigationLayer() {
 		layer("1", "navigate").manipulators([...navigationManipulators]),
 		layer(";", "navigate").manipulators([...navigationManipulators]),
 		// layer("x", "navigate").manipulators([...windowModeManipulators]),
-		// duoLayer("e", "r").manipulators([...navigationManipulators]),
+		duoLayer("s", "d").manipulators([...navigationManipulators]),
 		duoLayer(";", "spacebar", "arrow keys").manipulators([
 			...navigationManipulators,
 		]),

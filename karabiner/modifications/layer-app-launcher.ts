@@ -1,4 +1,4 @@
-import { modifierLayer } from "karabiner_ts";
+import { modifierLayer } from "karabiner.ts";
 import { appsConfig } from "./apps-config.ts";
 
 export function layerAppLauncher() {

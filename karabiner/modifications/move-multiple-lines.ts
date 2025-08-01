@@ -1,4 +1,4 @@
-import { rule, map, withModifier } from "karabiner_ts";
+import { rule, map, withModifier } from "karabiner.ts";
 
 export function moveMultipleLines() {
 	return rule("Move multiple lines").manipulators([

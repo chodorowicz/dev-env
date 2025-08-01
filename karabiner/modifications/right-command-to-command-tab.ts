@@ -1,4 +1,4 @@
-import { rule, map } from "karabiner_ts";
+import { rule, map } from "karabiner.ts";
 
 export function rightCommandToCommandTab() {
 	return rule("Right Command to Command Tab").manipulators([

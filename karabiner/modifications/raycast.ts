@@ -1,4 +1,4 @@
-import { modifierLayer, to$ } from "karabiner_ts";
+import { modifierLayer, to$ } from "karabiner.ts";
 
 export function raycast() {
 	return modifierLayer("Meh", "r", "app layer")

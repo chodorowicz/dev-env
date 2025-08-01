@@ -1,4 +1,4 @@
-import { layer, toPaste } from "karabiner_ts";
+import { layer, toPaste } from "karabiner.ts";
 
 export function emoji() {
 	return layer("z", "emoji").manipulators({

@@ -1,4 +1,4 @@
-import { toApp, map, mapSimultaneous, layer } from "karabiner_ts";
+import { toApp, map, mapSimultaneous, layer } from "karabiner.ts";
 
 export function appsConfig() {
 	return [

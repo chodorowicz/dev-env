@@ -5,8 +5,10 @@ import {
 	withCondition,
 	ifApp,
 	duoLayer,
-} from "karabiner_ts";
+	BasicManipulator,
+} from "karabiner.ts";
 import { togglePanelsGeneric } from "./ui-controls.ts";
+import { holdTapLayer } from "karabiner.ts-greg-mods";
 
 function entitiesNavigationConfig(previous: string, next: string) {
 	return [
@@ -42,7 +44,34 @@ export function nextPreviousEntity() {
 		rule("Next previous entity").manipulators([
 			withModifier("Meh")(entitiesNavigationConfig("[", "]")),
 		]),
-		duoLayer("d", "f").manipulators(entitiesNavigationConfig("u", "i")),
-		duoLayer("d", "f").manipulators(togglePanelsGeneric("m", ",")),
+		// duoLayer("e", "r").manipulators(entitiesNavigationConfig("u", "i")),
+		// duoLayer("e", "r").manipulators(togglePanelsGeneric("m", ",")),
+		holdTapLayer("r").permissiveHoldManipulators(
+			...withCondition(
+				ifApp({
+					file_paths: ["Google Chrome"],
+				})
+			)([
+				map("i").to("right_arrow", ["left_option", "left_command"]),
+				map("u").to("left_arrow", ["left_option", "left_command"]),
+			]),
+			...withCondition(
+				ifApp({
+					file_paths: ["Obsidian", "Code", "Cursor", "iTerm"],
+				})
+			)([
+				map("i").to("]", ["left_command", "left_shift"]),
+				map("u").to("[", ["left_command", "left_shift"]),
+			]),
+			...withCondition(
+				ifApp({
+					file_paths: ["Arc.app"],
+				})
+			)([
+				map("i").to("down_arrow", ["left_command", "left_option"]),
+				map("u").to("up_arrow", ["left_command", "left_option"]),
+			])
+		),
+		// duoLayer("e", "r").manipulators(togglePanelsGeneric("m", ",")),
 	];
 }

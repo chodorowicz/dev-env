@@ -5,7 +5,7 @@ import {
 	ifApp,
 	map,
 	duoLayer,
-} from "karabiner_ts";
+} from "karabiner.ts";
 
 export function backAndForthGeneric(back: string, forth: string) {
 	return [
