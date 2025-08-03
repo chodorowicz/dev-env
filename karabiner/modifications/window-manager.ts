@@ -40,34 +40,13 @@ export function rectangleWindowNavigation() {
 	);
 }
 
-function mod(key, mod) {
-	return (
-		map(key)
-			.toIfAlone(key, {}, { halt: true })
-			// .toDelayedAction(toKey("vk_none"), toStickyModifier(mod, "toggle"))
-			.toIfHeldDown(mod, {}, { halt: true })
-			.toDelayedAction(toKey("vk_none"), toKey(key))
-			.parameters({
-				"basic.to_if_held_down_threshold_milliseconds": 200,
-				"basic.to_delayed_action_delay_milliseconds": 250,
-			})
-	);
-}
-const mods = [
-	mod("a", "left_control"),
-	mod("s", "left_option"),
-	mod("d", "left_command"),
-	// mod("f", "left_shift"),
-	mod("j", "right_shift"),
-	mod("k", "left_command"),
-	mod("l", "right_option"),
-	mod(";", "right_control"),
-];
-export function homeRowMods() {
-	return rule("homeRowMods").manipulators(withModifier("??")(mods));
-}
-
 const navigationManipulators = [
+	withModifier("??")([
+		map("a").to("left_control"),
+		map("s").to("left_option"),
+		map("d").to("left_command"),
+		map("f").to("left_shift"),
+	]),
 	// pass through all modifiers
 	withModifier("??")([
 		map("j").to("left_arrow"),
@@ -84,13 +63,6 @@ const navigationManipulators = [
 	mapDoubleTap("q", 200)
 		.to("delete_or_backspace", ["left_option"])
 		.singleTap(toKey("delete_or_backspace")),
-
-	withModifier("??")([
-		map("a").to("left_control"),
-		map("s").to("left_option"),
-		map("d").to("left_command"),
-		map("f").to("left_shift"),
-	]),
 ];
 
 export function navigationLayer() {
