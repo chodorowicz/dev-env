@@ -106,9 +106,10 @@ export function nextPreviousEntity() {
 					map("i").to("]", ["left_command", "left_shift"]),
 					map("u").to("[", ["left_command", "left_shift"]),
 				]),
+				// next previous tab
 				...withCondition(
 					ifApp({
-						file_paths: ["Arc.app"],
+						file_paths: ["Arc.app", "Zen"],
 					})
 				)([
 					map("i").to("down_arrow", ["left_command", "left_option"]),
