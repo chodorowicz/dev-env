@@ -3,7 +3,7 @@
 	"description": "karabiner config in karabiner.ts",
 	"scripts": {
 		"build": "tsx karabiner.ts",
-		"build:watch": "tsx karabiner.ts --watch",
+		"build:watch": "tsx watch karabiner.ts",
 		"update": "npm update karabiner.ts"
 	},
 	"devDependencies": {
