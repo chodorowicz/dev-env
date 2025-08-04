@@ -7,8 +7,9 @@ import {
 	type FromKeyParam,
 } from "karabiner.ts";
 import { hrm } from "karabiner.ts-greg-mods";
+import { isBuiltInKeyboard } from "../helpers/devices.ts";
 
-export const hrmRule = rule("Home row mods").manipulators(
+export const hrmRule = rule("Home row mods", isBuiltInKeyboard()).manipulators(
 	hrm(
 		new Map([
 			["a", "l⌃"],
