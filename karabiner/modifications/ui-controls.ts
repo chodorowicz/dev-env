@@ -5,6 +5,7 @@ import {
 	ifApp,
 	map,
 	duoLayer,
+	FromKeyParam,
 } from "karabiner.ts";
 
 export function backAndForthGeneric(back: string, forth: string) {
@@ -51,13 +52,16 @@ export function backAndForth() {
 		// rule("Next previous entity").manipulators([
 		// 	withModifier("Meh")(entitiesNavigationConfig("[", "]")),
 		// ]),
-		duoLayer("d", "f").manipulators(backAndForthGeneric("j", "k")),
+		// duoLayer("d", "f").manipulators(backAndForthGeneric("j", "k")),
 	];
 }
 
-export function togglePanelsGeneric(leftPanel: string, rightPanel: string) {
+export function togglePanelsGeneric(
+	leftPanel: FromKeyParam,
+	rightPanel: FromKeyParam
+) {
 	return [
-		withCondition(
+		...withCondition(
 			ifApp({
 				file_paths: ["Code", "Cursor"],
 			})
