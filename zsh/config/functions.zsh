@@ -30,6 +30,6 @@ reload() {
   source ~/.zshenv
 }
 
-loadEnv() {
+function loadEnv() {
   [ -f .env ] && set -a && source .env && set +a
 }
