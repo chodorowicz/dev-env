@@ -12,7 +12,6 @@ import {
 	mapDoubleTap,
 	withModifier,
 	toStickyModifier,
-	duoModifiers,
 	type LetterKeyCode,
 	type KeyAlias,
 	type ModifierKeyAlias,
@@ -155,21 +154,20 @@ export function duoModifiers(
 function rule_duoModifiers() {
 	return rule("duo-modifiers").manipulators(
 		duoModifiers({
-			"⌘": ["fd", "jk"], // ⌘ first as used the most
-			"⌃": ["fs", "jl"], // ⌃ second as Vim uses it
-			"⌥": ["fa", "j;"], // ⌥ last as used the least
-
-			"⇧": ["ds", "kl"],
-
-			"⌘⇧": ["gd", "hk"],
-			"⌃⇧": ["gs", "hl"],
-			"⌥⇧": ["ga", "h;"],
-
-			"⌘⌥": ["vc", "m,"],
-			"⌘⌃": ["vx", "m."],
-			"⌥⌃": ["cx", ",."],
-
-			"⌘⌥⌃": ["vz", "m/"],
+			// "⌘": ["fd", "jk"], // ⌘ first as used the most
+			// "⌃": ["fs", "jl"], // ⌃ second as Vim uses it
+			// "⌥": ["fa", "j;"], // ⌥ last as used the least
+			// "⇧": ["ds", "kl"],
+			// "⌘⇧": ["gd", "hk"],
+			// "⌃⇧": ["gs", "hl"],
+			// "⌥⇧": ["ga", "h;"],
+			// "⌘⌥": ["vc", "m,"],
+			// "⌘⌃": ["vx", "m."],
+			// "⌥⌃": ["cx", ",."],
+			"⇧": ["fd", "jk"],
+			"⌘": ["ds", "kl"],
+			"⌥": ["fs", "jl"],
+			"⌃": ["sa", "l;"],
 		})
 	);
 }
@@ -203,10 +201,11 @@ writeToProfile(
 		// homeRowMods(),
 		// delayedLayer(),
 		hrmRule,
+		// rule_duoModifiers(),
 	],
 	{
 		"basic.to_if_held_down_threshold_milliseconds": 100,
 		"basic.to_delayed_action_delay_milliseconds": 200,
-		"basic.simultaneous_threshold_milliseconds": 50,
+		"basic.simultaneous_threshold_milliseconds": 100,
 	}
 );
