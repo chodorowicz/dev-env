@@ -10,48 +10,7 @@ import {
 } from "karabiner.ts";
 import { togglePanelsGeneric } from "./ui-controls.ts";
 import { holdTapLayer, modTap } from "karabiner.ts-greg-mods";
-
-const qwertyLeftHandKeys: (FromAndToKeyCode | KeyAlias)[] = [
-	"q",
-	"w",
-	"e",
-	"r",
-	"t",
-	"a",
-	"s",
-	"d",
-	"f",
-	"g",
-	"z",
-	"x",
-	"c",
-	"v",
-	"b",
-];
-
-const qwertyRightHandKeys: (FromAndToKeyCode | KeyAlias)[] = [
-	"y",
-	"u",
-	"i",
-	"o",
-	"p",
-	"[",
-	"]",
-	"\\",
-	"h",
-	"j",
-	"k",
-	"l",
-	";",
-	"'",
-	"n",
-	"m",
-	",",
-	".",
-	"/",
-	"␣",
-	"⏎",
-];
+import { qwertyKeys } from "./helpers/keys.ts";
 
 function entitiesNavigationConfig(previous: string, next: string) {
 	return [
@@ -112,7 +71,7 @@ function nextPreviousEntityWithModifier() {
 			]),
 			...togglePanelsGeneric("m", ",")
 		)
-		.echoKeys(...[...qwertyLeftHandKeys, ...qwertyRightHandKeys])
+		.echoKeys(...qwertyKeys)
 		.tappingTerm(150);
 }
 

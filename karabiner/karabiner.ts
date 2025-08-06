@@ -37,7 +37,10 @@ import { moveMultipleLines } from "./modifications/move-multiple-lines.ts";
 import { raycast } from "./modifications/raycast.ts";
 import { backAndForth, togglePanels } from "./modifications/ui-controls.ts";
 import { powerArrowNavigation } from "./modifications/arrow-navigation.ts";
-import { navigationLayer } from "./modifications/window-manager.ts";
+import {
+	navigationLayer,
+	windowSwitcher,
+} from "./modifications/window-manager.ts";
 import { hrmRule } from "./modifications/hrm.ts";
 
 export function deleteWord() {
@@ -201,6 +204,7 @@ writeToProfile(
 		// homeRowMods(),
 		// delayedLayer(),
 		hrmRule,
+		windowSwitcher(),
 		// rule_duoModifiers(),
 	],
 	{

@@ -15,6 +15,8 @@ import {
 	mapSimultaneous,
 } from "karabiner.ts";
 import { toRectanglePro } from "./helpers/rectangle.ts";
+import { holdTapLayer } from "karabiner.ts-greg-mods";
+import { qwertyKeys } from "./helpers/keys.ts";
 
 // Rectangle window navigation
 const windowModeManipulators = [
@@ -64,6 +66,18 @@ const navigationManipulators = [
 		.to("delete_or_backspace", ["left_option"])
 		.singleTap(toKey("delete_or_backspace")),
 ];
+
+export function windowSwitcher() {
+	return holdTapLayer("e")
+		.permissiveHoldManipulators(
+			map("l").to("tab", ["left_command"]),
+			map("j").to("left_arrow", ["left_command"]),
+			map("k").to("down_arrow", ["left_command"]),
+			map("i").to("up_arrow", ["left_command"])
+		)
+		.echoKeys(...qwertyKeys)
+		.tappingTerm(150);
+}
 
 export function navigationLayer() {
 	return [
