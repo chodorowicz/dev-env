@@ -18,23 +18,20 @@ import { toRectanglePro } from "./helpers/rectangle.ts";
 import { holdTapLayer } from "karabiner.ts-greg-mods";
 import { qwertyKeys } from "./helpers/keys.ts";
 
-// Rectangle window navigation
 const windowModeManipulators = [
-	{
-		n: toRectanglePro("next-display"),
-		m: toRectanglePro("maximize"),
-		"1": toRectanglePro("maximize"),
-		j: toRectanglePro("left-half"),
-		l: toRectanglePro("right-half"),
-		i: toRectanglePro("top-half"),
-		k: toRectanglePro("bottom-half"),
-		o: toRectanglePro("smaller"),
-		u: toRectanglePro("larger"),
-		7: toRectanglePro("first-third"),
-		8: toRectanglePro("center-third"),
-		9: toRectanglePro("last-third"),
-		0: toRectanglePro("center-half"),
-	},
+	map("n").to(toRectanglePro("next-display")),
+	map("m").to(toRectanglePro("maximize")),
+	map("1").to(toRectanglePro("maximize")),
+	map("j").to(toRectanglePro("left-half")),
+	map("l").to(toRectanglePro("right-half")),
+	map("i").to(toRectanglePro("top-half")),
+	map("k").to(toRectanglePro("bottom-half")),
+	map("o").to(toRectanglePro("smaller")),
+	map("u").to(toRectanglePro("larger")),
+	map("7").to(toRectanglePro("first-third")),
+	map("8").to(toRectanglePro("center-third")),
+	map("9").to(toRectanglePro("last-third")),
+	map("0").to(toRectanglePro("center-half")),
 ];
 export function rectangleWindowNavigation() {
 	return modifierLayer("Meh", "w", "control windows").manipulators(
@@ -88,12 +85,15 @@ export function navigationLayer() {
 		]),
 		layer("1", "navigate").manipulators([...navigationManipulators]),
 		layer(";", "navigate").manipulators([...navigationManipulators]),
-		// layer("x", "navigate").manipulators([...windowModeManipulators]),
+		// layer("x", "navigate").manipulators([...windowModeManipulators2]),
 		// duoLayer("s", "d").manipulators([...navigationManipulators]),
 		duoLayer(";", "spacebar", "arrow keys").manipulators([
 			...navigationManipulators,
 		]),
-		// rule("navigate").manipulators([withModifier("fn")(navigationManipulators)]),
+		holdTapLayer("w")
+			.permissiveHoldManipulators(...windowModeManipulators)
+			.echoKeys(...qwertyKeys)
+			.tappingTerm(150), // rule("navigate").manipulators([withModifier("fn")(navigationManipulators)]),
 		// rule("navigate").manipulators([
 		// 	withModifier("right_option")(navigationManipulators),
 		// ]),
