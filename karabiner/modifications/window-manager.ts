@@ -70,7 +70,8 @@ export function windowSwitcher() {
 			map("l").to("tab", ["left_command"]),
 			map("j").to("left_arrow", ["left_command"]),
 			map("k").to("down_arrow", ["left_command"]),
-			map("i").to("up_arrow", ["left_command"])
+			map("i").to("up_arrow", ["left_command"]),
+			map("u").to("q", ["left_command"])
 		)
 		.echoKeys(...qwertyKeys)
 		.tappingTerm(150);
