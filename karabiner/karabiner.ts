@@ -40,6 +40,7 @@ import { powerArrowNavigation } from "./modifications/arrow-navigation.ts";
 import {
 	navigationLayer,
 	windowSwitcher,
+	navigationLayer2,
 } from "./modifications/window-manager.ts";
 import { hrmRule } from "./modifications/hrm.ts";
 
@@ -194,6 +195,8 @@ writeToProfile(
 		// powerArrowNavigation(),
 		rectangleWindowNavigation(),
 		...navigationLayer(),
+		navigationLayer2(),
+		hrmRule,
 		deleteWord(),
 		// numpad(),
 		layer_digitAndDelete(),
@@ -203,7 +206,7 @@ writeToProfile(
 		// rule_duoModifiers(),
 		// homeRowMods(),
 		// delayedLayer(),
-		hrmRule,
+
 		windowSwitcher(),
 		// rule_duoModifiers(),
 	],
