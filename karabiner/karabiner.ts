@@ -21,7 +21,6 @@ import {
 	toRemoveNotificationMessage,
 } from "karabiner.ts";
 import { basicModifiers } from "./modifications/basic-modifiers.ts";
-// import { appsLauncher } from "./modifications/apps-launcher.ts";
 import {
 	navigateWithFunction,
 	navigateWithFunctionMore,
@@ -43,6 +42,7 @@ import {
 	navigationLayer2,
 } from "./modifications/window-manager.ts";
 import { hrmRule } from "./modifications/hrm.ts";
+import { emoji } from "./modifications/emoji.ts";
 
 export function deleteWord() {
 	return rule("test").manipulators([
@@ -182,7 +182,6 @@ writeToProfile(
 		basicModifiers(),
 		// navigateWithFunction(),
 		rightCommandToCommandTab(),
-		// appsLauncher(),
 		...appsLauncherWithManipulator(),
 		// windowManager(),
 		...nextPreviousEntity(),
@@ -206,7 +205,7 @@ writeToProfile(
 		// rule_duoModifiers(),
 		// homeRowMods(),
 		// delayedLayer(),
-
+		emoji(),
 		windowSwitcher(),
 		// rule_duoModifiers(),
 	],

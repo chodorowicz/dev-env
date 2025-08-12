@@ -1,73 +1,55 @@
 import {
-	rule,
-	withModifier,
-	FromModifierParam,
+	FromKeyParam,
+	ifVar,
 	map,
+	rule,
 	toApp,
 	toSetVar,
-	ifVar,
 	withCondition,
+	withModifier,
 } from "karabiner.ts";
-import { appsConfig } from "./apps-config.ts";
+type AppConfig = [FromKeyParam, string];
 
-export function appsLauncher(modifier: FromModifierParam = "Meh") {
-  return [
-    rule("Launch Apps").manipulators([
-      withModifier(modifier)({
-        ...appsConfig(),
-      }),
-    ]),
-  ];
+function appMapper(main: AppConfig, secondary: Array<AppConfig> = []) {
+	const mainApp = map(main[0])
+		.toVar("app_layer", main[0])
+		.toAfterKeyUp(toSetVar("app_layer", 0))
+		.toIfAlone(toApp(main[1]));
+
+	const secondaryApps = secondary.map((app) =>
+		withCondition(ifVar("app_layer", main[0]))([map(app[0]).to(toApp(app[1]))])
+	);
+
+	return [mainApp, ...secondaryApps];
 }
 
 export function appsLauncherWithManipulator() {
-  return [
-    rule("apps").manipulators([
-      withModifier("right_command")([
-        map("b")
-          .toVar("app_layer", "b")
-          .toAfterKeyUp(toSetVar("app_layer", 0))
-          .toIfAlone(toApp("BoltAI")),
-        map("e")
-          .toVar("app_layer", "e")
-          .toAfterKeyUp(toSetVar("app_layer", 0))
-          .toIfAlone(toApp("eM Client")),
-        map("f")
-          .toVar("app_layer", "f")
-          .toAfterKeyUp(toSetVar("app_layer", 0))
-          .toIfAlone(toApp("Finder")),
-        map("s")
-          .toVar("app_layer", "s")
-          .toAfterKeyUp(toSetVar("app_layer", 0))
-          .toIfAlone(toApp("Slack")),
-        map("l")
-          .toVar("app_layer", "l")
-          .toAfterKeyUp(toSetVar("app_layer", 0))
-          .toIfAlone(toApp("Linear")),
-        map(";")
-          .toVar("app_layer", ";")
-          .toAfterKeyUp(toSetVar("app_layer", 0))
-          .toIfAlone(toApp("Polypane")),
-        map("m")
-          .toVar("app_layer", "m")
-          .toAfterKeyUp(toSetVar("app_layer", 0))
-          .toIfAlone(toApp("Marvin")),
-        map("n")
-          .toVar("app_layer", "n")
-          .toAfterKeyUp(toSetVar("app_layer", 0))
-          .toIfAlone(toApp("Notion")),
-        map("p")
-          .toVar("app_layer", "p")
-          .toAfterKeyUp(toSetVar("app_layer", 0))
-          .toIfAlone(toApp("1Password")),
-        withCondition(ifVar("app_layer", "f"))([map("o").to(toApp("Fork"))]),
-        withCondition(ifVar("app_layer", "f"))([map("i").to(toApp("Figma"))]),
-        withCondition(ifVar("app_layer", "s"))([map("i").to(toApp("Signal"))]),
-        withCondition(ifVar("app_layer", "p"))([map("o").to(toApp("Postman"))]),
-        withCondition(ifVar("app_layer", "m"))([map("a").to(toApp("Mail"))]),
-        withCondition(ifVar("app_layer", "n"))([map("o").to(toApp("Notion Mail"))]),
-      ]),
-    ]),
-    rule("apps").manipulators([withModifier(["right_command"])(appsConfig())]),
-  ];
+	return [
+		rule("apps").manipulators([
+			withModifier("right_command")([
+				...appMapper(["a", "Arc"]),
+				...appMapper(["b", "BoltAI"]),
+				...appMapper(["c", "Google Chrome"]),
+				...appMapper(["e", "eM Client"]),
+				...appMapper(
+					["f", "Finder"],
+					[
+						["o", "Fork"],
+						["i", "Figma"],
+					]
+				),
+				...appMapper(["s", "Slack"], [["i", "Signal"]]),
+				...appMapper(["i", "iTerm"]),
+				...appMapper(["l", "Linear"]),
+				...appMapper([";", "Polypane"]),
+				...appMapper(["m", "Marvin"], [["a", "Mail"]]),
+				...appMapper(["n", "Notion"], [["o", "Notion Mail"]]),
+				...appMapper(["o", "Obsidian"]),
+				...appMapper(["p", "1Password"], [["o", "Postman"]]),
+				...appMapper(["v", "Visual Studio Code"]),
+				...appMapper(["u", "Cursor"]),
+				...appMapper(["z", "Zen"]),
+			]),
+		]),
+	];
 }
