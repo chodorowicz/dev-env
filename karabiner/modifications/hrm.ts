@@ -19,7 +19,7 @@ export const hrmRule = rule("Home row mods", isBuiltInKeyboard()).manipulators(
 			["j", "r⇧"],
 			["k", "l⌘"],
 			["l", "r⌥"],
-			// [";", "r⌃"], // use ; for navigation layer
+			[";", "r⌃"],
 		])
 	)
 		.lazy(true)

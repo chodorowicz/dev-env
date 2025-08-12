@@ -116,7 +116,7 @@ export function navigationLayer() {
 			withCondition(ifVar("window_mode").unless())(navigationManipulators),
 		]),
 		layer("1", "navigate").manipulators([...navigationManipulators]),
-		layer(";", "navigate").manipulators([...navigationManipulators]),
+		// layer(";", "navigate").manipulators([...navigationManipulators]),
 		// layer("x", "navigate").manipulators([...windowModeManipulators2]),
 		// duoLayer("s", "d").manipulators([...navigationManipulators]),
 		duoLayer(";", "spacebar", "arrow keys").manipulators([
