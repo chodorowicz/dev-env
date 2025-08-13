@@ -23,33 +23,59 @@ function appMapper(main: AppConfig, secondary: Array<AppConfig> = []) {
 	return [mainApp, ...secondaryApps];
 }
 
+function isAppConfig(app: unknown): app is AppConfig {
+	return (
+		Array.isArray(app) &&
+		typeof app[0] === "string" &&
+		typeof app[1] === "string"
+	);
+}
+
+function mapMultipleApps(
+	apps: Array<AppConfig | [AppConfig, Array<AppConfig>]>
+) {
+	return apps.flatMap((app) => {
+		if (Array.isArray(app[0]) && Array.isArray(app[1])) {
+			return appMapper(app[0], app[1]);
+		}
+
+		if (isAppConfig(app)) {
+			return appMapper(app);
+		}
+
+		throw new Error("Invalid app config");
+	});
+}
+
 export function appsLauncherWithManipulator() {
 	return [
 		rule("apps").manipulators([
-			withModifier("right_command")([
-				...appMapper(["a", "Arc"]),
-				...appMapper(["b", "BoltAI"]),
-				...appMapper(["c", "Google Chrome"]),
-				...appMapper(["e", "eM Client"]),
-				...appMapper(
-					["f", "Finder"],
+			withModifier("right_command")(
+				mapMultipleApps([
+					["a", "Arc"],
+					["b", "BoltAI"],
+					["c", "Google Chrome"],
+					["e", "eM Client"],
 					[
-						["o", "Fork"],
-						["i", "Figma"],
-					]
-				),
-				...appMapper(["s", "Slack"], [["i", "Signal"]]),
-				...appMapper(["i", "iTerm"]),
-				...appMapper(["l", "Linear"]),
-				...appMapper([";", "Polypane"]),
-				...appMapper(["m", "Marvin"], [["a", "Mail"]]),
-				...appMapper(["n", "Notion"], [["o", "Notion Mail"]]),
-				...appMapper(["o", "Obsidian"]),
-				...appMapper(["p", "1Password"], [["o", "Postman"]]),
-				...appMapper(["v", "Visual Studio Code"]),
-				...appMapper(["u", "Cursor"]),
-				...appMapper(["z", "Zen"]),
-			]),
+						["f", "Finder"],
+						[
+							["o", "Fork"],
+							["i", "Figma"],
+						],
+					],
+					[["s", "Slack"], [["i", "Signal"]]],
+					["i", "iTerm"],
+					["l", "Linear"],
+					[";", "Polypane"],
+					[["m", "Marvin"], [["a", "Mail"]]],
+					[["n", "Notion"], [["o", "Notion Mail"]]],
+					["o", "Obsidian"],
+					[["p", "1Password"], [["o", "Postman"]]],
+					["v", "Visual Studio Code"],
+					["u", "Cursor"],
+					["z", "Zen"],
+				])
+			),
 		]),
 	];
 }
