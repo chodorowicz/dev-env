@@ -27,22 +27,17 @@ import {
 } from "./modifications/navigate-with-function.ts";
 import { appsLauncherWithManipulator } from "./modifications/apps-launcher.ts";
 import { rightCommandToCommandTab } from "./modifications/right-command-to-command-tab.ts";
-import {
-	// windowManager,
-	rectangleWindowNavigation,
-} from "./modifications/window-manager.ts";
+import { windowManagerLayer } from "./modifications/window-manager.ts";
 import { nextPreviousEntity } from "./modifications/next-previous-entity.ts";
 import { moveMultipleLines } from "./modifications/move-multiple-lines.ts";
 import { raycast } from "./modifications/raycast.ts";
 import { backAndForth, togglePanels } from "./modifications/ui-controls.ts";
 import { powerArrowNavigation } from "./modifications/arrow-navigation.ts";
-import {
-	navigationLayer,
-	windowSwitcher,
-	navigationLayer2,
-} from "./modifications/window-manager.ts";
+import { uiManager, navigationLayer } from "./modifications/window-manager.ts";
 import { hrmRule } from "./modifications/hrm.ts";
 import { emoji } from "./modifications/emoji.ts";
+import { holdTapLayer } from "karabiner.ts-greg-mods";
+import { qwertyKeys } from "./modifications/helpers/keys.ts";
 
 export function deleteWord() {
 	return rule("test").manipulators([
@@ -107,12 +102,16 @@ N   M  ,   .     J  K  L    U  I  O    P  ;   /  ]    [      '   H   Y    \\`;
 function screenshot() {
 	// return mapDoubleTap("4").to("4", "cmd", "shift").singleTap(toKey("4"));
 	// return map("4").toIfHeldDown("4", "cmd", "shift").singleTap(toKey("4"));
-	return rule("screenshot").manipulators([
-		mapDoubleTap("4").to("4", "⌘⇧").singleTap(toKey("4")).parameters({
-			"basic.to_delayed_action_delay_milliseconds": 100,
-			"basic.to_if_held_down_threshold_milliseconds": 100,
-		}),
-	]);
+	// return rule("screenshot").manipulators([
+	// 	mapDoubleTap("4").to("4", "⌘⇧").singleTap(toKey("4")).parameters({
+	// 		"basic.to_delayed_action_delay_milliseconds": 100,
+	// 		"basic.to_if_held_down_threshold_milliseconds": 100,
+	// 	}),
+	// ]);
+	return holdTapLayer("o")
+		.permissiveHoldManipulators(...[map("s").to("4", "⌘⇧")])
+		.tappingTerm(120)
+		.echoKeys(...qwertyKeys);
 }
 
 // map meh + d to escape
@@ -183,22 +182,22 @@ writeToProfile(
 		// navigateWithFunction(),
 		rightCommandToCommandTab(),
 		...appsLauncherWithManipulator(),
-		// windowManager(),
 		...nextPreviousEntity(),
-		...backAndForth(),
+		// ...backAndForth(),
 		// moveMultipleLines(),
 		// navigateWithFunctionMore(),
 		// raycast(),
 		// arrowNavigation(),
 		// arrowNavigationJumpWord(),
 		// powerArrowNavigation(),
-		rectangleWindowNavigation(),
+		// uiManager(),
+		// rectangleWindowNavigation(),
 		...navigationLayer(),
-		navigationLayer2(),
+		// navigationLayer2(),
 		hrmRule,
-		deleteWord(),
+		// deleteWord(),
 		// numpad(),
-		layer_digitAndDelete(),
+		// layer_digitAndDelete(),
 		togglePanels(),
 		screenshot(),
 		escape(),
@@ -206,8 +205,7 @@ writeToProfile(
 		// homeRowMods(),
 		// delayedLayer(),
 		emoji(),
-		windowSwitcher(),
-		// rule_duoModifiers(),
+		...windowManagerLayer(),
 	],
 	{
 		"basic.to_if_held_down_threshold_milliseconds": 100,

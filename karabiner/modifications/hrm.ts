@@ -26,6 +26,6 @@ export const hrmRule = rule("Home row mods", isBuiltInKeyboard()).manipulators(
 		.chordalHold(false)
 		.holdTapStrategy("permissive-hold")
 		.simultaneousThreshold(90)
-		.tappingTerm(150)
+		.tappingTerm(120)
 		.build()
 );

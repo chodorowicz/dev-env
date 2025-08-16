@@ -77,9 +77,9 @@ function nextPreviousEntityWithModifier() {
 
 export function nextPreviousEntity() {
 	return [
-		rule("Next previous entity").manipulators([
-			withModifier("Meh")(entitiesNavigationConfig("[", "]")),
-		]),
+		// rule("Next previous entity").manipulators([
+		// 	withModifier("Meh")(entitiesNavigationConfig("[", "]")),
+		// ]),
 		nextPreviousEntityWithModifier(),
 		// duoLayer("e", "r").manipulators(entitiesNavigationConfig("u", "i")),
 		// duoLayer("e", "r").manipulators(togglePanelsGeneric("m", ",")),
