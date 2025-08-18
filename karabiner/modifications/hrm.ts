@@ -16,10 +16,10 @@ export const hrmRule = rule("Home row mods", isBuiltInKeyboard()).manipulators(
 			["s", "l⌥"],
 			["d", "l⌘"],
 			["f", "l⇧"],
-			["j", "r⇧"],
-			["k", "r⌘"],
-			["l", "r⌥"],
-			[";", "r⌃"],
+			["j", "l⇧"],
+			["k", "l⌘"],
+			["l", "l⌥"],
+			[";", "l⌃"],
 		])
 	)
 		.lazy(true)
