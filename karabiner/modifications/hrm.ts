@@ -16,15 +16,15 @@ export const hrmRule = rule("Home row mods", isBuiltInKeyboard()).manipulators(
 			["s", "l⌥"],
 			["d", "l⌘"],
 			["f", "l⇧"],
-			["j", "l⇧"],
-			["k", "l⌘"],
+			["j", "r⇧"],
+			["k", "r⌘"],
 			["l", "r⌥"],
 			[";", "r⌃"],
 		])
 	)
 		.lazy(true)
-		.chordalHold(false)
 		.holdTapStrategy("permissive-hold")
+		.chordalHold(true)
 		.simultaneousThreshold(90)
 		.tappingTerm(120)
 		.build()
