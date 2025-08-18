@@ -16,7 +16,7 @@ export const hrmRule = rule("Home row mods", isBuiltInKeyboard()).manipulators(
 			["s", "l⌥"],
 			["d", "l⌘"],
 			["f", "l⇧"],
-			["j", "r⇧"],
+			["j", "l⇧"],
 			["k", "l⌘"],
 			["l", "r⌥"],
 			[";", "r⌃"],
