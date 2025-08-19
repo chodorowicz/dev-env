@@ -36,7 +36,8 @@ function mb-ee() {
     export MB_ENTERPRISE_TOKEN=$MB_TOKEN
     export CYPRESS_ALL_FEATURES_TOKEN=$MB_TOKEN
     export CYPRESS_NO_FEATURES_TOKEN='<another token>'
-    clojure -M:run:dev:ee
+    # dev-start - starts repl
+    clojure -M:dev:ee:ee-dev:dev-start
 }
 
 function mb-oss-empty() {
