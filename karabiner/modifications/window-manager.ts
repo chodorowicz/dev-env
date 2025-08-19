@@ -9,6 +9,7 @@ import {
 import { toRectanglePro } from "./helpers/rectangle.ts";
 import { holdTapLayer } from "karabiner.ts-greg-mods";
 import { qwertyKeys } from "./helpers/keys.ts";
+import { TAPPING_TERM } from "../constants.ts";
 
 const windowModeManipulators = [
 	map("n").to(toRectanglePro("next-display")),
@@ -90,7 +91,7 @@ export function uiManager() {
 				map("u").to("q", ["left_command"])
 			)
 			.echoKeys(...qwertyKeys)
-			.tappingTerm(150),
+			.tappingTerm(TAPPING_TERM),
 	];
 }
 
@@ -99,7 +100,7 @@ export function navigationLayer() {
 		holdTapLayer("spacebar")
 			.optionalModifiers(["shift", "option", "control", "command"])
 			.permissiveHoldManipulators(...navigationArrows2, ...navigationModifiers2)
-			.tappingTerm(120)
+			.tappingTerm(TAPPING_TERM)
 			.allowAnyModifiers(),
 	];
 }
