@@ -1,3 +1,4 @@
 cask "linear-linear"
 cask "notion"
 cask "figma"
+brew "rlwrap"
