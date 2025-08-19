@@ -204,7 +204,7 @@ writeToProfile(
 		// rule_duoModifiers(),
 		// homeRowMods(),
 		// delayedLayer(),
-		emoji(),
+		...emoji(),
 		...windowManagerLayer(),
 	],
 	{
