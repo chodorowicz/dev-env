@@ -123,7 +123,11 @@ export function windowManagerLayer() {
 		// 	.permissiveHoldManipulators(...windowModeManipulators)
 		// 	.echoKeys(...qwertyKeys)
 		// 	.tappingTerm(150),
-		layer("w", "window manager").manipulators(windowModeManipulators),
+		holdTapLayer("w")
+			.permissiveHoldManipulators(...windowModeManipulators)
+			.echoKeys(...qwertyKeys)
+			.tappingTerm(TAPPING_TERM),
+		// layer("w", "window manager").manipulators(windowModeManipulators),
 		// rule("navigate").manipulators([
 		// 	withModifier("right_option")(navigationManipulators),
 		// ]),
