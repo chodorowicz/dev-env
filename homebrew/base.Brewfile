@@ -1,6 +1,7 @@
 # fonts
 cask "font-jetbrains-mono"
 cask "font-inter"
+cask "font-monaspace"
 
 # dev
 cask "visual-studio-code"
