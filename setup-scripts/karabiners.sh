@@ -7,7 +7,6 @@ dev_env_dir=$(dirname "$current_dir")
 
 pushd $dev_env_dir/karabiner
 
-# install karabiner.ts modifications
-deno run --allow-env --allow-read --allow-write $dev_env_dir/karabiner/karabiner.ts
+npm run build
 
 popd
