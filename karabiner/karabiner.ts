@@ -35,6 +35,7 @@ import { hrmRule } from "./modifications/hrm.ts";
 import { emoji } from "./modifications/emoji.ts";
 import { holdTapLayer } from "karabiner.ts-greg-mods";
 import { qwertyKeys } from "./modifications/helpers/keys.ts";
+import { symbols } from "./modifications/symbols.ts";
 
 export function deleteWord() {
 	return rule("test").manipulators([
@@ -202,6 +203,7 @@ writeToProfile(
 		// delayedLayer(),
 		...emoji(),
 		...windowManagerLayer(),
+		...symbols(),
 	],
 	{
 		"basic.to_if_held_down_threshold_milliseconds": 100,
