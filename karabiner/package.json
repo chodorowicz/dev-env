@@ -8,9 +8,9 @@
 	},
 	"devDependencies": {
 		"@types/node": "^20",
-		"karabiner.ts": "1.35.0",
+		"karabiner.ts": "^1.35.1",
 		"karabiner.ts-greg-mods": "file:../../personal/karabiner.ts-greg-mods",
-		"tsx": "4.20.4",
+		"tsx": "^4.20.4",
 		"typescript": "^5"
 	}
 }
