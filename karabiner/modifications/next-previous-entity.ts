@@ -69,7 +69,8 @@ function nextPreviousEntityWithModifier() {
 				map("i").to("down_arrow", ["left_command", "left_option"]),
 				map("u").to("up_arrow", ["left_command", "left_option"]),
 			]),
-			...togglePanelsGeneric("m", ",")
+			...togglePanelsGeneric("m", ","),
+			map("w").to("w", ["left_command"])
 		)
 		.echoKeys(...qwertyKeys)
 		.tappingTerm(150);
