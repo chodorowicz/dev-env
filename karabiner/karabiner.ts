@@ -36,6 +36,7 @@ import { emoji } from "./modifications/emoji.ts";
 import { holdTapLayer } from "karabiner.ts-greg-mods";
 import { qwertyKeys } from "./modifications/helpers/keys.ts";
 import { symbols } from "./modifications/symbols.ts";
+import { numbersLayer } from "./modifications/numbers.ts";
 
 export function deleteWord() {
 	return rule("test").manipulators([
@@ -194,6 +195,7 @@ writeToProfile(
 		hrmRule,
 		// deleteWord(),
 		// numpad(),
+		...numbersLayer(),
 		// layer_digitAndDelete(),
 		togglePanels(),
 		screenshot(),
