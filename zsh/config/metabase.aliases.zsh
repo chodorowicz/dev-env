@@ -29,7 +29,7 @@ function mb-fe-oss() {
 }
 
 function mb-ee() {
-    mb-postgres-config
+    # mb-postgres-config
     export MB_EDITION='ee'
     export MB_PREMIUM_EMBEDDING_TOKEN=$MB_TOKEN
     export ENTERPRISE_TOKEN=$MB_TOKEN
@@ -41,13 +41,13 @@ function mb-ee() {
 }
 
 function mb-oss-empty() {
-    mb-postgres-config
+    # mb-postgres-config
     export MB_EDITION='oss'
     clojure -M:run:dev:oss
 }
 
 function mb-ee-empty() {
-    mb-postgres-config
+    # mb-postgres-config
     export MB_EDITION='ee'
     export MB_PREMIUM_EMBEDDING_TOKEN=
     export ENTERPRISE_TOKEN=
