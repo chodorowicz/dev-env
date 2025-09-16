@@ -17,15 +17,15 @@ function mb() {
 }
 
 function mb-fe-oss() {
-    mb && FS_CACHE=true yarn build-hot:js-wait
+    FS_CACHE=true yarn build-hot:js-wait
 }
 
 function mb-fe-ee() {
-    mb && FS_CACHE=true MB_EDITION=ee yarn build-hot:js-wait
+    FS_CACHE=true MB_EDITION=ee yarn build-hot:js-wait
 }
 
 function mb-fe-oss() {
-    mb && FS_CACHE=true MB_EDITION=oss yarn build-hot:js-wait
+    FS_CACHE=true MB_EDITION=oss yarn build-hot:js-wait
 }
 
 function mb-ee() {
