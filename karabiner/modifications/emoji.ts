@@ -9,7 +9,8 @@ export function emoji() {
 			.permissiveHoldManipulators(
 				map("l").toPaste("😄"), // laughing`
 				map("s").toPaste("😅"), // sweat smile
-				map("j").toPaste("😂") // joy
+				map("j").toPaste("😂"), // joy
+				map("c").toPaste("✅") // check mark
 			)
 			.tappingTerm(TAPPING_TERM)
 			.echoKeys(...qwertyKeys),
