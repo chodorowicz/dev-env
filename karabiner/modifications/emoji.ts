@@ -7,7 +7,7 @@ export function emoji() {
 	return [
 		holdTapLayer("z")
 			.permissiveHoldManipulators(
-				map("l").toPaste("😄"), // laughing`
+				map("l").toPaste("😄"), // laughing
 				map("s").toPaste("😅"), // sweat smile
 				map("j").toPaste("😂"), // joy
 				map("c").toPaste("✅") // check mark
