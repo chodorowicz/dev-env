@@ -74,6 +74,7 @@ export function appsLauncherWithManipulator() {
 					["v", "Visual Studio Code"],
 					["u", "Cursor"],
 					["z", "Zen"],
+					["x", "Zed"],
 				])
 			),
 		]),
