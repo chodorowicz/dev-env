@@ -53,7 +53,7 @@ export function appsLauncherWithManipulator() {
 			withModifier("right_command")(
 				mapMultipleApps([
 					["a", "Arc"],
-					["b", "BoltAI"],
+					["b", "Bloom"],
 					["c", "Google Chrome"],
 					["e", "eM Client"],
 					[
