@@ -17,7 +17,7 @@ function entitiesNavigationConfig(previous: string, next: string) {
 		withCondition(
 			ifApp({
 				file_paths: ["Google Chrome"],
-			})
+			}),
 		)([
 			map(next).to("right_arrow", ["left_option", "left_command"]),
 			map(previous).to("left_arrow", ["left_option", "left_command"]),
@@ -25,7 +25,7 @@ function entitiesNavigationConfig(previous: string, next: string) {
 		withCondition(
 			ifApp({
 				file_paths: ["Obsidian", "Code", "Cursor", "iTerm"],
-			})
+			}),
 		)([
 			map(next).to("]", ["left_command", "left_shift"]),
 			map(previous).to("[", ["left_command", "left_shift"]),
@@ -33,7 +33,7 @@ function entitiesNavigationConfig(previous: string, next: string) {
 		withCondition(
 			ifApp({
 				file_paths: ["Arc.app"],
-			})
+			}),
 		)([
 			map(next).to("down_arrow", ["left_command", "left_option"]),
 			map(previous).to("up_arrow", ["left_command", "left_option"]),
@@ -47,15 +47,15 @@ function nextPreviousEntityWithModifier() {
 			...withCondition(
 				ifApp({
 					file_paths: ["Google Chrome"],
-				})
+				}),
 			)([
 				map("i").to("right_arrow", ["left_option", "left_command"]),
 				map("u").to("left_arrow", ["left_option", "left_command"]),
 			]),
 			...withCondition(
 				ifApp({
-					file_paths: ["Obsidian", "Code", "Cursor", "iTerm"],
-				})
+					file_paths: ["Obsidian", "Code", "Cursor", "iTerm", "Zed"],
+				}),
 			)([
 				map("i").to("]", ["left_command", "left_shift"]),
 				map("u").to("[", ["left_command", "left_shift"]),
@@ -64,13 +64,13 @@ function nextPreviousEntityWithModifier() {
 			...withCondition(
 				ifApp({
 					file_paths: ["Arc.app", "Zen"],
-				})
+				}),
 			)([
 				map("i").to("down_arrow", ["left_command", "left_option"]),
 				map("u").to("up_arrow", ["left_command", "left_option"]),
 			]),
 			...togglePanelsGeneric("m", ","),
-			map("w").to("w", ["left_command"])
+			map("w").to("w", ["left_command"]),
 		)
 		.echoKeys(...qwertyKeys)
 		.tappingTerm(150);
