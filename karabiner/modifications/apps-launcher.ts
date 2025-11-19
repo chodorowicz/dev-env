@@ -54,7 +54,7 @@ export function appsLauncherWithManipulator() {
 				mapMultipleApps([
 					["a", "Arc"],
 					["b", "Bloom"],
-					["c", "Google Chrome"],
+					[["c", "Google Chrome"], [["p", "Cypress"]]],
 					["e", "eM Client"],
 					[
 						["f", "Finder"],
