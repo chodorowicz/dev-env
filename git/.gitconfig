@@ -69,8 +69,9 @@
 	# A recent addition to git which defaults the -p flag to `git stash show`; meaning `git stash show` shows the diff from that stash (should really be default...)
 	showPatch = true
 
-[url "git@github.com:"]
-	insteadOf = https://github.com/
+# This can interfere with apps use git and just support https urls
+# [url "git@github.com:"]
+# 	insteadOf = https://github.com/
 
 [alias]
 	# View the current working tree status using the short format
