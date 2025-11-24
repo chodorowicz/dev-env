@@ -7,7 +7,6 @@ import {
 	duoLayer,
 	withMapper,
 	toKey,
-	mapDoubleTap,
 	withModifier,
 	type LetterKeyCode,
 	type KeyAlias,
@@ -18,25 +17,18 @@ import {
 	toRemoveNotificationMessage,
 } from "karabiner.ts";
 import { basicModifiers } from "./modifications/basic-modifiers.ts";
-import {
-	navigateWithFunction,
-	navigateWithFunctionMore,
-} from "./modifications/navigate-with-function.ts";
 import { appsLauncherWithManipulator } from "./modifications/apps-launcher.ts";
 import { rightCommandToCommandTab } from "./modifications/right-command-to-command-tab.ts";
 import { windowManagerLayer } from "./modifications/window-manager.ts";
 import { nextPreviousEntity } from "./modifications/next-previous-entity.ts";
-import { moveMultipleLines } from "./modifications/move-multiple-lines.ts";
-import { raycast } from "./modifications/raycast.ts";
-import { backAndForth, togglePanels } from "./modifications/ui-controls.ts";
-import { powerArrowNavigation } from "./modifications/arrow-navigation.ts";
-import { uiManager, navigationLayer } from "./modifications/window-manager.ts";
 import { hrmRule } from "./modifications/hrm.ts";
 import { emoji } from "./modifications/emoji.ts";
 import { holdTapLayer } from "karabiner.ts-greg-mods";
 import { qwertyKeys } from "./modifications/helpers/keys.ts";
 import { symbols } from "./modifications/symbols.ts";
 import { numbersLayer } from "./modifications/numbers.ts";
+import { navigationLayer } from "./modifications/navigation-layer.ts";
+import { togglePanels } from "./modifications/ui-controls.ts";
 
 export function deleteWord() {
 	return rule("test").manipulators([
