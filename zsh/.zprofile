@@ -8,6 +8,3 @@ eval "$(pyenv init -)"
 if command -v rbenv 1>/dev/null 2>&1; then
   eval "$(rbenv init - --no-rehash zsh)"
 fi
-
-
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
