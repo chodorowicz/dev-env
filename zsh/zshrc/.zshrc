@@ -18,6 +18,8 @@ else
 	$(brew --prefix)/opt/fzf/install
 fi
 
+eval "$(mise activate zsh)"
+
 # Starship
 export STARSHIP_CONFIG="$HOME/dotfiles/starship.toml"
 eval "$(starship init zsh)"
