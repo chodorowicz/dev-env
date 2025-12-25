@@ -43,6 +43,7 @@ cask "fork"
 cask "proxyman"
 cask "tableplus"
 brew "leiningen"
+brew "gnupg"
 
 # utilities
 cask "rectangle-pro"
