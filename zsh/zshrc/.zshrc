@@ -42,9 +42,9 @@ if [ -n "${ITERM_SESSION_ID}" ] && [ -e "${HOME}/.iterm2_shell_integration.zsh" 
 fi
 
 # fnm
-eval "$(fnm env --use-on-cd --shell zsh)"
-eval "$(fnm env --corepack-enabled --shell zsh)"
-eval "$(fnm env --version-file-strategy=recursive --shell zsh)"
+# eval "$(fnm env --use-on-cd --shell zsh)"
+# eval "$(fnm env --corepack-enabled --shell zsh)"
+# eval "$(fnm env --version-file-strategy=recursive --shell zsh)"
 
 if [ -f ~/.deno/env ]; then
 	. "$HOME/.deno/env"
