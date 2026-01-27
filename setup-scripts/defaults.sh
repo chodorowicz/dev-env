@@ -72,11 +72,11 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
-## Menubar  
+## Menubar
 
 # Show Bluetooth in menubar
 # https://www.hexnode.com/mobile-device-management/help/script-to-show-bluetooth-menu-on-status-bar-of-macos-devices/
-defaults write com.apple.controlcenter.plist Bluetooth -int 18 
+defaults write com.apple.controlcenter.plist Bluetooth -int 18
 
 ## Keyboard
 
@@ -93,3 +93,6 @@ defaults -currentHost write -globalDomain NSStatusItemSpacing -int 6
 
 # padding
 defaults -currentHost write -globalDomain NSStatusItemSelectionPadding -int 0
+
+# reset to view the changes
+killall ControlCenter
