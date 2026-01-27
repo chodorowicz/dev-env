@@ -87,4 +87,9 @@ defaults write com.apple.HIToolbox AppleFnUsageType -int "0"
 ## Activate new settings
 /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 
+## status bar
+# pick 0–10; smaller is tighter
+defaults -currentHost write -globalDomain NSStatusItemSpacing -int 6
 
+# padding
+defaults -currentHost write -globalDomain NSStatusItemSelectionPadding -int 0
