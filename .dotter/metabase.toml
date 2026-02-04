@@ -13,3 +13,17 @@ append = """
 
 {{ include_template "zsh/zshrc/metabase.zshrc" }}
 """
+
+[zsh.files."zsh/config-metabase"]
+target = "~/.config/zsh"
+
+[zsh.files."zsh/.zshenv"]
+target = "~/.zshenv"
+type= "template"
+append = """
+
+{{ include_template "zsh/zshenv/metabase.zshenv" }}
+"""
+
+[zsh.files."zsh/config-metabase"]
+target = "~/.config/zsh"
