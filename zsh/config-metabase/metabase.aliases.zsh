@@ -1,10 +1,37 @@
-function start-postgres() {
-    docker run -d --name metabase-postgres \
-        -e POSTGRES_DB=metabase \
+function start-postgres {
+    zparseopts -D -E -F -A opts -name: -port: -dbname:
+
+    local port=$opts[--port]
+    local name=$opts[--name]
+    local dbname=$opts[--dbname]
+    echo "port: $port, name: $name"
+    docker run -d --name ${name} \
+        -e POSTGRES_DB=${dbname} \
         -e POSTGRES_USER=metabase \
         -e POSTGRES_PASSWORD=metabase \
-        -p 5432:5432 \
+        -p ${port}:5432 \
         postgres:latest
+}
+
+function stop-postgres() {
+    zparseopts -D -E -F -A opts -name:
+
+    local name=$opts[--name]
+    echo "name: $name"
+    docker stop ${name}
+    docker rm ${name}
+}
+
+function reset-postgres-1() {
+    docker stop metabase-postgres
+    docker rm metabase-postgres
+    start-postgres --name metabase-postgres --port 5432
+}
+
+function reset-postgres-2() {
+    docker stop metabase-postgres-2
+    docker rm metabase-postgres-2
+    start-postgres --name metabase-postgres-2 --port 5433
 }
 
 function stop-postgres() {
@@ -48,12 +75,12 @@ function mb-oss-empty() {
 
 function mb-ee-empty() {
     # mb-postgres-config
-    export MB_EDITION='ee'
-    export MB_PREMIUM_EMBEDDING_TOKEN=
-    export ENTERPRISE_TOKEN=
-    export MB_ENTERPRISE_TOKEN=
-    export CYPRESS_ALL_FEATURES_TOKEN=
-    export CYPRESS_NO_FEATURES_TOKEN=
+    # export MB_EDITION='ee'
+    # export MB_PREMIUM_EMBEDDING_TOKEN=
+    # export ENTERPRISE_TOKEN=
+    # export MB_ENTERPRISE_TOKEN=
+    # export CYPRESS_ALL_FEATURES_TOKEN=
+    # export CYPRESS_NO_FEATURES_TOKEN=
     # dev-start - starts repl
     clojure -M:dev:ee:ee-dev:dev-start
 }
