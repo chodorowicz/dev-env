@@ -30,6 +30,19 @@ reload() {
   source ~/.zshenv
 }
 
-function loadEnv() {
-  [ -f .env ] && set -a && source .env && set +a
+function load-env() {
+  local env_name=${1:-}
+  local env_file
+  
+  if [ -z "$env_name" ]; then
+    env_file=".env"
+  elif [[ "$env_name" == .* ]]; then
+    # If name starts with a dot, use as-is (e.g., .env.local)
+    env_file="$env_name"
+  else
+    # Otherwise, prepend .env. (e.g., "local" -> ".env.local")
+    env_file=".env.$env_name"
+  fi
+  
+  [ -f "$env_file" ] && set -a && source "$env_file" && set +a
 }
