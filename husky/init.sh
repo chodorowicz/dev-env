@@ -1,4 +1,4 @@
-# fnm
-# eval "$(fnm env --use-on-cd --shell zsh)"
-# eval "$(fnm env --corepack-enabled --shell zsh)"
-# eval "$(fnm env --version-file-strategy=recursive --shell zsh)"
+# #!/usr/bin/env zsh
+#eval "$(mise activate zsh)"
+export PATH="$HOME/.local/bin":$PATH
+eval "$(mise activate bash)"
