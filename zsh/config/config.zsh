@@ -22,3 +22,6 @@ export EDITOR="code --wait"
 export LANG="en_US.UTF-8"
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+#-- set homebrew auto update interval
+export HOMEBREW_AUTO_UPDATE_SECS="86400"
