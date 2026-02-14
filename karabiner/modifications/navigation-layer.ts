@@ -8,7 +8,7 @@ import {
 	toNotificationMessage,
 } from "karabiner.ts";
 import { TAPPING_TERM } from "../constants.ts";
-import { holdTapLayer } from "karabiner.ts-greg-mods";
+import { holdTapLayer, disableCapsWordEvents } from "karabiner.ts-greg-mods";
 
 const navigationModifiers = [
 	map("a").to("left_control"),
@@ -61,6 +61,7 @@ export function navigationLayer() {
 	return [
 		holdTapLayer("spacebar")
 			.optionalModifiers(["shift", "option", "control", "command"])
+			.onAlone(disableCapsWordEvents)
 			.permissiveHoldManipulators(...navigationArrows2, ...navigationModifiers2)
 			.tappingTerm(TAPPING_TERM)
 			.allowAnyModifiers(),

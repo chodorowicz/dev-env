@@ -29,6 +29,7 @@ import { symbols } from "./modifications/symbols.ts";
 import { numbersLayer } from "./modifications/numbers.ts";
 import { navigationLayer } from "./modifications/navigation-layer.ts";
 import { togglePanels } from "./modifications/ui-controls.ts";
+import { capsWordRule } from "./modifications/caps-word.ts";
 
 export function deleteWord() {
 	return rule("test").manipulators([
@@ -119,7 +120,7 @@ export function duoModifiers(
 			"⌘" | "⌥" | "⌃" | "⇧" | MultiModifierAlias,
 			`${LetterKeyCode | KeyAlias}${LetterKeyCode | KeyAlias}`[]
 		>
-	>
+	>,
 ) {
 	let result = [];
 
@@ -137,7 +138,7 @@ export function duoModifiers(
 					to_after_key_up: [toRemoveNotificationMessage(id)],
 				})
 					.toNotificationMessage(id, m) // Must go first or to() doesn't work
-					.to(`left_${firstMod}`, restMods)
+					.to(`left_${firstMod}`, restMods),
 			);
 		}
 	}
@@ -162,7 +163,7 @@ function rule_duoModifiers() {
 			"⌘": ["ds", "kl"],
 			"⌥": ["fs", "jl"],
 			"⌃": ["sa", "l;"],
-		})
+		}),
 	);
 }
 
@@ -198,10 +199,11 @@ writeToProfile(
 		...emoji(),
 		...windowManagerLayer(),
 		...symbols(),
+		capsWordRule,
 	],
 	{
 		"basic.to_if_held_down_threshold_milliseconds": 100,
 		"basic.to_delayed_action_delay_milliseconds": 200,
 		"basic.simultaneous_threshold_milliseconds": 100,
-	}
+	},
 );
