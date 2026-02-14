@@ -20,5 +20,9 @@ target = "~/.ssh/config"
 type = "template"
 if = "(command_success '! test -f ~/.ssh/config')"
 
+[mise.files]
+"mise/personal.config.toml" = "~/.config/mise/config.toml"
+
 [settings]
 default_target_type = "template"
+
