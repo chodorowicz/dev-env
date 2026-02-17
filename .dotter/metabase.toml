@@ -1,6 +1,6 @@
 [homebrew.files."homebrew/base.Brewfile"]
 target = "~/Brewfile"
-type= "template"
+type = "template"
 append = """
 
 {{ include_template "homebrew/metabase.Brewfile" }}
@@ -8,7 +8,7 @@ append = """
 
 [zsh.files."zsh/zshrc/.zshrc"]
 target = "~/.zshrc"
-type= "template"
+type = "template"
 append = """
 
 {{ include_template "zsh/zshrc/metabase.zshrc" }}
@@ -17,11 +17,10 @@ append = """
 [zsh.files]
 "zsh/config-metabase/metabase.aliases.zsh" = "~/.config/zsh/metabase.aliases.zsh"
 
-[zsh.files."zsh/.zshenv"]
-target = "~/.zshenv"
-type= "template"
+[zsh.files]
+"zsh/.zshenv" = "~/.zshenv"
+type = "template"
 append = """
 
 {{ include_template "zsh/zshenv/metabase.zshenv" }}
 """
- 
