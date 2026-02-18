@@ -12,7 +12,6 @@ brew "micro" # text editor
 cask "iterm2"
 cask "itermai"
 cask "orbstack"
-brew "pyenv"
 brew "zplug"
 brew "git"
 brew "starship"
