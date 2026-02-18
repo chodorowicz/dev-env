@@ -15,11 +15,6 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export NPM_CONFIG_GLOBALCONFIG="$HOME/global.npmrc"
 
-# pyenv initialisation - it inserts shims into path
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
 export DOCKER_CLIENT_TIMEOUT=120
 export COMPOSE_HTTP_TIMEOUT=120
 
@@ -28,7 +23,7 @@ cargo="$HOME/.cargo/env"
 export PATH=$PATH:"$HOME/.cargo/bin"
 
 if [[ $(uname -m) == 'arm64' ]]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+	eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 alias python='python3'
