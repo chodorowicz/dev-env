@@ -18,7 +18,6 @@ brew "starship"
 brew "z"
 brew "bat"
 brew "fzf"
-brew "postgresql@14"
 brew "mas" # Mac App Store CLI
 brew "glab"
 brew "ripgrep"
