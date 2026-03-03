@@ -12,16 +12,17 @@ type SecondaryApp = [FromKeyParam, string];
 type AppConfig = [FromKeyParam, string, SecondaryApp[]];
 
 function appMapper([key, mainAppName, secondaryApps = []]: AppConfig) {
-	const mainApp = map(key)
-		.toVar("app_layer", key)
-		.toAfterKeyUp(toSetVar("app_layer", 0))
-		.toIfAlone(toApp(mainAppName));
+	const mainApp = withCondition(ifVar("app_layer", 0))([
+		map(key)
+			.toVar("app_layer", key)
+			.toAfterKeyUp(toSetVar("app_layer", 0))
+			.toIfAlone(toApp(mainAppName)),
+	]);
 
-	const secondaryAppMappings = secondaryApps.map(
-		([secondaryKey, appName]) =>
-			withCondition(ifVar("app_layer", key))([
-				map(secondaryKey).to(toApp(appName)),
-			])
+	const secondaryAppMappings = secondaryApps.map(([secondaryKey, appName]) =>
+		withCondition(ifVar("app_layer", key))([
+			map(secondaryKey).to(toApp(appName)),
+		]),
 	);
 
 	return [mainApp, ...secondaryAppMappings];
@@ -40,8 +41,22 @@ export function appsLauncherWithManipulator() {
 					["b", "Bloom", []],
 					["c", "Google Chrome", [["p", "Cypress"]]],
 					["e", "eM Client", []],
-					["f", "Finder", [["o", "Fork"], ["i", "Figma"]]],
-					["s", "Slack", [["i", "Signal"]]],
+					[
+						"f",
+						"Finder",
+						[
+							["o", "Fork"],
+							["i", "Figma"],
+						],
+					],
+					[
+						"s",
+						"Slack",
+						[
+							["i", "Signal"],
+							["a", "Safari"],
+						],
+					],
 					["i", "iTerm", []],
 					["l", "Linear", []],
 					[";", "Polypane", []],
@@ -53,7 +68,7 @@ export function appsLauncherWithManipulator() {
 					["u", "Cursor", []],
 					["z", "Zen", []],
 					["x", "Zed", []],
-				])
+				]),
 			),
 		]),
 	];
