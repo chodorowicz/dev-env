@@ -12,35 +12,6 @@ import { togglePanelsGeneric } from "./ui-controls.ts";
 import { holdTapLayer, modTap } from "karabiner.ts-greg-mods";
 import { qwertyKeys } from "./helpers/keys.ts";
 
-function entitiesNavigationConfig(previous: string, next: string) {
-	return [
-		withCondition(
-			ifApp({
-				file_paths: ["Google Chrome"],
-			}),
-		)([
-			map(next).to("right_arrow", ["left_option", "left_command"]),
-			map(previous).to("left_arrow", ["left_option", "left_command"]),
-		]),
-		withCondition(
-			ifApp({
-				file_paths: ["Obsidian", "Code", "Cursor", "iTerm"],
-			}),
-		)([
-			map(next).to("]", ["left_command", "left_shift"]),
-			map(previous).to("[", ["left_command", "left_shift"]),
-		]),
-		withCondition(
-			ifApp({
-				file_paths: ["Arc.app"],
-			}),
-		)([
-			map(next).to("down_arrow", ["left_command", "left_option"]),
-			map(previous).to("up_arrow", ["left_command", "left_option"]),
-		]),
-	];
-}
-
 function nextPreviousEntityWithModifier() {
 	return holdTapLayer("r")
 		.permissiveHoldManipulators(
@@ -54,7 +25,7 @@ function nextPreviousEntityWithModifier() {
 			]),
 			...withCondition(
 				ifApp({
-					file_paths: ["Obsidian", "Code", "Cursor", "iTerm", "Zed"],
+					file_paths: ["Obsidian", "Code", "Cursor", "iTerm", "Zed", "Vivaldi"],
 				}),
 			)([
 				map("i").to("]", ["left_command", "left_shift"]),

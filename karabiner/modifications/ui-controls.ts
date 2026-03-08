@@ -7,55 +7,6 @@ import {
 	duoLayer,
 	FromKeyParam,
 } from "karabiner.ts";
-
-export function backAndForthGeneric(back: string, forth: string) {
-	return [
-		withCondition(
-			ifApp({
-				file_paths: ["Code", "Cursor"],
-			})
-		)([
-			map(forth).to("=", ["left_control"]),
-			map(back).to("-", ["left_control"]),
-			map("return_or_enter").to("f12", ["fn"]),
-		]),
-		withCondition(
-			ifApp({
-				file_paths: ["Obsidian"],
-			})
-		)([
-			map(forth).to("right_arrow", ["left_command", "left_option"]),
-			map(back).to("left_arrow", ["left_command", "left_option"]),
-		]),
-		withCondition(
-			ifApp({
-				file_paths: ["Slack"],
-			})
-		)([
-			map(forth).to("]", ["left_command"]),
-			map(back).to("[", ["left_command"]),
-		]),
-		// Chrome needs plugins to support history tab navigation 2025-07-30
-		withCondition(
-			ifApp({
-				file_paths: ["Google Chrome"],
-			})
-		)([
-			map(forth).to("t", ["left_option"]),
-			map(back).to("t", ["left_option", "left_shift"]),
-		]),
-	];
-}
-
-export function backAndForth() {
-	return [
-		// rule("Next previous entity").manipulators([
-		// 	withModifier("Meh")(entitiesNavigationConfig("[", "]")),
-		// ]),
-		// duoLayer("d", "f").manipulators(backAndForthGeneric("j", "k")),
-	];
-}
-
 export function togglePanelsGeneric(
 	leftPanel: FromKeyParam,
 	rightPanel: FromKeyParam
