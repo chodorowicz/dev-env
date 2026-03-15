@@ -26,3 +26,5 @@ if = "(command_success '! test -f ~/.ssh/config')"
 [settings]
 default_target_type = "template"
 
+[config.files]
+"config" = "~/.config"
