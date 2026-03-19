@@ -13,8 +13,6 @@ export PATH="$HOME/dev-env":$PATH
 #   https://mike.place/2017/fzf-fd/
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-export NPM_CONFIG_GLOBALCONFIG="$HOME/global.npmrc"
-
 export DOCKER_CLIENT_TIMEOUT=120
 export COMPOSE_HTTP_TIMEOUT=120
 
