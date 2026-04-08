@@ -14,8 +14,6 @@ zplug "zsh-users/zsh-autosuggestions"
 
 zplug "zsh-users/zsh-syntax-highlighting"
 
-zplug "rupa/z", use:z.sh
-
 # k
 # Directory listings for zsh with git features.
 # https://github.com/supercrabtree/k

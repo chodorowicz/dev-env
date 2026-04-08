@@ -49,3 +49,5 @@ fi
 if [ -f ~/.deno/env ]; then
 	. "$HOME/.deno/env"
 fi
+
+eval "$(zoxide init zsh)"

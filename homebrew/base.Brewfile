@@ -15,7 +15,6 @@ cask "orbstack"
 brew "zplug"
 brew "git"
 brew "starship"
-brew "z"
 brew "bat"
 brew "fzf"
 brew "mas" # Mac App Store CLI
@@ -41,6 +40,7 @@ cask "proxyman"
 cask "tableplus"
 brew "leiningen"
 brew "gnupg"
+brew "zoxide" # rupa/z replacement
 
 # utilities
 cask "rectangle-pro"
