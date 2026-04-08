@@ -66,3 +66,12 @@ function load-env() {
 
 	[ -f "$env_file" ] && set -a && source "$env_file" && set +a
 }
+
+
+function github-workflows() {
+    gh workflow list -L 200 --json name,id | \
+        jq -r '.[] | "\(.id)\t\(.name)"' | \
+        fzf --with-nth=2.. --delimiter='\t' | \
+        cut -f1 | \
+        xargs -I{} gh workflow view {} --webp
+}
