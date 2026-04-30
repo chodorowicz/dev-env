@@ -53,8 +53,8 @@ export function appsLauncherWithManipulator() {
 						"s",
 						"Slack",
 						[
-							["i", "Signal"],
 							["a", "Safari"],
+							["i", "Signal"],
 						],
 					],
 					["i", "iTerm", []],
