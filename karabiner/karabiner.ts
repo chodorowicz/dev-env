@@ -30,6 +30,7 @@ import { numbersLayer } from "./modifications/numbers.ts";
 import { navigationLayer } from "./modifications/navigation-layer.ts";
 import { togglePanels } from "./modifications/ui-controls.ts";
 import { capsWordRule } from "./modifications/caps-word.ts";
+import { appSwitcherLayer } from "./modifications/app-switcher-layer.ts";
 
 export function deleteWord() {
 	return rule("test").manipulators([
@@ -184,6 +185,7 @@ writeToProfile(
 		// uiManager(),
 		// rectangleWindowNavigation(),
 		...navigationLayer(),
+		...appSwitcherLayer(),
 		// navigationLayer2(),
 		hrmRule,
 		// deleteWord(),
