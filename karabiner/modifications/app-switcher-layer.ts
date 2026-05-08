@@ -4,7 +4,7 @@ import { TAPPING_TERM } from "../constants.ts";
 
 export function appSwitcherLayer() {
 	return [
-		holdTapLayer("x")
+		holdTapLayer("tab")
 			.onHold("left_command")
 			.onHold("tab", "left_command", { repeat: false })
 			.tappingTerm(TAPPING_TERM)
