@@ -31,6 +31,7 @@ import { navigationLayer } from "./modifications/navigation-layer.ts";
 import { togglePanels } from "./modifications/ui-controls.ts";
 import { capsWordRule } from "./modifications/caps-word.ts";
 import { appSwitcherLayer } from "./modifications/app-switcher-layer.ts";
+import { mediaKeys } from "./modifications/media-keys.ts";
 
 export function deleteWord() {
 	return rule("test").manipulators([
@@ -202,6 +203,7 @@ writeToProfile(
 		...windowManagerLayer(),
 		...symbols(),
 		capsWordRule,
+		mediaKeys(),
 	],
 	{
 		"basic.to_if_held_down_threshold_milliseconds": 100,
