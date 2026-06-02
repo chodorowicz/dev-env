@@ -64,7 +64,10 @@ function load-env() {
 		env_file=".env.$env_name"
 	fi
 
-	[ -f "$env_file" ] && set -a && source "$env_file" && set +a
+	if [ -f "$env_file" ]; then
+		set -a && source "$env_file" && set +a
+		echo "Loaded env: ${env_file:a}"
+	fi
 }
 
 
@@ -73,5 +76,5 @@ function github-workflows() {
         jq -r '.[] | "\(.id)\t\(.name)"' | \
         fzf --with-nth=2.. --delimiter='\t' | \
         cut -f1 | \
-        xargs -I{} gh workflow view {} --webp
+        xargs -I{} gh workflow view {}
 }
