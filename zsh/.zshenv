@@ -6,7 +6,7 @@ export PATH="/usr/local/bin":$PATH
 export PATH="/usr/local/sbin":$PATH
 export PATH="$HOME/local/sbin":$PATH
 export PATH="$HOME/.local/bin":$PATH
-export PATH="$HOME/.console-ninja/.bin":$PATH
+# export PATH="$HOME/.console-ninja/.bin":$PATH
 export PATH="$HOME/dev-env":$PATH
 
 # search for folders in home directory
