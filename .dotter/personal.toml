@@ -4,3 +4,6 @@ type= "template"
 append = """
 {{ include_template "homebrew/personal.Brewfile" }}
 """
+
+[mise.files]
+"mise/personal.config.toml" = "~/.config/mise/config.toml"
