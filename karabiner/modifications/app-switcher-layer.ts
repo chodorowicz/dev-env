@@ -13,6 +13,8 @@ export function appSwitcherLayer() {
 				map("j", undefined, "any").to("left_arrow", "left_command"),
 				map("k", undefined, "any").to("down_arrow", "left_command"),
 				map("l", undefined, "any").to("right_arrow", "left_command"),
+				map("q", undefined, "any").to("q", "left_command"),
+				map("w", undefined, "any").to("w", "left_command"),
 			)
 			.build(),
 	];
