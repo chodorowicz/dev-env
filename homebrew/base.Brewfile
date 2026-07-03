@@ -41,6 +41,8 @@ cask "tableplus"
 brew "leiningen"
 brew "gnupg"
 brew "zoxide" # rupa/z replacement
+brew "git-spice" # stacked branches helper
+
 
 # utilities
 cask "rectangle-pro"
