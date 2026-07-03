@@ -64,7 +64,7 @@ export function appsLauncherWithManipulator() {
 					["n", "Notion", [["o", "Notion Mail"]]],
 					["o", "Obsidian", []],
 					["p", "1Password", [["o", "Postman"]]],
-					["v", "Visual Studio Code", []],
+					["v", "Visual Studio Code", [["i", "Vivaldi"]]],
 					["u", "Cursor", []],
 					["w", "WebStorm", []],
 					["x", "Zed", []],
