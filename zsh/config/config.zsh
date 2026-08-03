@@ -25,3 +25,6 @@ export LANG="en_US.UTF-8"
 
 #-- set homebrew auto update interval
 export HOMEBREW_AUTO_UPDATE_SECS="86400"
+
+#-- let self-updating apps manage their own updates (skip auto_updates casks on brew upgrade)
+export HOMEBREW_NO_UPGRADE_AUTO_UPDATES_CASKS=1
