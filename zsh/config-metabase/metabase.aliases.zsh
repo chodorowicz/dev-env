@@ -93,3 +93,6 @@ function mb-postgres-config() {
     export MB_DB_PASS=metabase
     export MB_DB_HOST=localhost
 }
+
+alias claude-default='CLAUDE_CONFIG_DIR=~/.claude claude'
+alias claude-personal='CLAUDE_CONFIG_DIR=~/.claude-personal claude'
