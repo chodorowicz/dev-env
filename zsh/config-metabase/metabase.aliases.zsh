@@ -95,4 +95,4 @@ function mb-postgres-config() {
 }
 
 alias claude-default='CLAUDE_CONFIG_DIR=~/.claude claude'
-alias claude-personal='CLAUDE_CONFIG_DIR=~/.claude-personal claude'
+alias claude-team='CLAUDE_CONFIG_DIR=~/.claude-team claude'
