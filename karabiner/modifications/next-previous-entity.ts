@@ -25,7 +25,7 @@ function nextPreviousEntityWithModifier() {
 			]),
 			...withCondition(
 				ifApp({
-					file_paths: ["Obsidian", "Code", "Cursor", "iTerm", "Zed", "Vivaldi"],
+					file_paths: ["Obsidian", "Code", "Cursor", "iTerm", "Zed", "Vivaldi", "Orca"],
 				}),
 			)([
 				map("i").to("]", ["left_command", "left_shift"]),
