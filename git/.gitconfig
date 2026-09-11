@@ -112,6 +112,10 @@
 
 [fetch]
 	prune = true
+	# Verify every object received on fetch; refuse a broken pack instead of leaving refs pointing at missing objects.
+	# Defaults to transfer.fsckObjects, set explicitly for clarity.
+	# https://git-scm.com/docs/git-config#git-config-fetchfsckObjects
+	fsckObjects = true
 
 [init]
 	defaultBranch = main
