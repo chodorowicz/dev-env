@@ -7,3 +7,12 @@ if [[ -d "$METABASE_SCRIPTS_DIR" ]]; then
     *) export PATH="$METABASE_SCRIPTS_DIR:$PATH" ;;
   esac
 fi
+
+export MBU_DIR={{MBU_DIR}}
+
+if [[ -d "$MBU_DIR" ]]; then
+  case ":$PATH:" in
+    *":$MBU_DIR:"*) ;;
+    *) export PATH="$MBU_DIR:$PATH" ;;
+  esac
+fi
