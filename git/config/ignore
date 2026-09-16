@@ -1,3 +1,5 @@
 .cursor/rules/personal
 .claude/worktrees
 mise.local.toml
+
+**/.claude/settings.local.json
