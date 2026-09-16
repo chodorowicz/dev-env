@@ -1,0 +1,5 @@
+# Registers the Metabase clone with `git maintenance` so the launchd jobs
+# installed by `git maintenance start` (hourly prefetch/commit-graph, daily
+# repack, weekly pack-refs) keep it fast.
+[maintenance]
+	repo = {{METABASE_REPO_DIR}}
