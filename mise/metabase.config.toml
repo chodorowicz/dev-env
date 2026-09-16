@@ -4,3 +4,8 @@ gum = "0.17.0" # Gum 2.0.1 spin echoes terminal capability replies (2026/2027).
 node = "22"
 "npm:typescript-language-server" = "latest"
 "npm:@metabase/cli" = "latest"
+
+[settings]
+# Resolved lazily: mise runs this only when it needs a GitHub token (release
+# downloads, rate limits), instead of every shell paying an `op read` at startup.
+github.credential_command = "{{MISE_GITHUB_TOKEN_COMMAND}}"
