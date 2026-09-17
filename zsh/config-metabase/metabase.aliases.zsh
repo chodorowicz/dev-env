@@ -39,10 +39,6 @@ function stop-postgres() {
     docker rm metabase-postgres
 }
 
-function mb() {
-    cd $HOME/work/metabase
-}
-
 function mb-fe-oss() {
     FS_CACHE=true yarn build-hot:js-wait
 }
