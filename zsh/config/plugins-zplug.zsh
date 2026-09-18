@@ -19,11 +19,6 @@ zplug "zsh-users/zsh-syntax-highlighting"
 # https://github.com/supercrabtree/k
 zplug 'supercrabtree/k'
 
-# alias-tips
-# Reminds you of aliases you have already.
-# https://github.com/djui/alias-tips
-zplug 'djui/alias-tips'
-
 # 🐢 seems to take quite a bit to load, around 1 second
 # zplug "felixr/docker-zsh-completion"
 
