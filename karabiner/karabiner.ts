@@ -18,7 +18,6 @@ import {
 } from "karabiner.ts";
 import { basicModifiers } from "./modifications/basic-modifiers.ts";
 import { appsLauncherWithManipulator } from "./modifications/apps-launcher.ts";
-import { rightCommandToCommandTab } from "./modifications/right-command-to-command-tab.ts";
 import { windowManagerLayer } from "./modifications/window-manager.ts";
 import { nextPreviousEntity } from "./modifications/next-previous-entity.ts";
 import { hrmRule } from "./modifications/hrm.ts";
@@ -174,7 +173,6 @@ writeToProfile(
 	[
 		basicModifiers(),
 		// navigateWithFunction(),
-		rightCommandToCommandTab(),
 		...appsLauncherWithManipulator(),
 		...nextPreviousEntity(),
 		// ...backAndForth(),

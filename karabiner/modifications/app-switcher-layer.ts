@@ -5,13 +5,17 @@ import { TAPPING_TERM } from "../constants.ts";
 // Set to 1 once ⌘+Tab opens the switcher, back to 0 when ⌘ is released.
 const SWITCHER_VAR = "cmd_tab_switcher";
 
-// i/j/k/l -> arrows, reused by both the hold-tab layer and the native ⌘+Tab flow.
+// i/j/k/l -> arrows, reused by the hold-tab / hold-/ layers and the native ⌘+Tab flow.
 const NAV = [
 	["i", "up_arrow"],
 	["j", "left_arrow"],
 	["k", "down_arrow"],
 	["l", "right_arrow"],
 ] as const;
+
+// ijkl steer the open switcher (⌘+arrows), shared by the hold-tab and hold-/ layers.
+const navManipulators = () =>
+	NAV.map(([from, to]) => map(from, undefined, "any").to(to, "left_command"));
 
 export function appSwitcherLayer() {
 	return [
@@ -21,13 +25,19 @@ export function appSwitcherLayer() {
 			.onHold("tab", "left_command", { repeat: false })
 			.tappingTerm(TAPPING_TERM)
 			.permissiveHoldManipulators(
-				map("i", undefined, "any").to("up_arrow", "left_command"),
-				map("j", undefined, "any").to("left_arrow", "left_command"),
-				map("k", undefined, "any").to("down_arrow", "left_command"),
-				map("l", undefined, "any").to("right_arrow", "left_command"),
+				...navManipulators(),
 				map("q", undefined, "any").to("q", "left_command"),
 				map("w", undefined, "any").to("w", "left_command"),
 			)
+			.build(),
+
+		// One-handed trigger: hold `/` to become ⌘ and open the switcher, then
+		// ijkl steer it; releasing `/` picks the app.
+		holdTapLayer("/")
+			.onHold("left_command")
+			.onHold("tab", "left_command", { repeat: false })
+			.tappingTerm(TAPPING_TERM)
+			.permissiveHoldManipulators(...navManipulators())
 			.build(),
 
 		// Native ⌘+Tab: arm ijkl navigation while the macOS switcher is open.
