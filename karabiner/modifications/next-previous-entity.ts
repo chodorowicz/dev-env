@@ -2,8 +2,6 @@ import {
 	rule,
 	map,
 	withModifier,
-	withCondition,
-	ifApp,
 	FromAndToKeyCode,
 	KeyAlias,
 	duoLayer,
@@ -11,35 +9,27 @@ import {
 import { togglePanelsGeneric } from "./ui-controls.ts";
 import { holdTapLayer, modTap } from "karabiner.ts-greg-mods";
 import { qwertyKeys } from "./helpers/keys.ts";
+import { inApps } from "../helpers/apps.ts";
 
 function nextPreviousEntityWithModifier() {
 	return holdTapLayer("r")
 		.permissiveHoldManipulators(
-			...withCondition(
-				ifApp({
-					file_paths: ["Google Chrome"],
-				}),
-			)([
+			...inApps(
+				["Google Chrome"],
 				map("i").to("right_arrow", ["left_option", "left_command"]),
 				map("u").to("left_arrow", ["left_option", "left_command"]),
-			]),
-			...withCondition(
-				ifApp({
-					file_paths: ["Obsidian", "Code", "Cursor", "iTerm", "Zed", "Vivaldi", "Orca"],
-				}),
-			)([
+			),
+			...inApps(
+				["Obsidian", "Code", "Cursor", "iTerm", "Zed", "Vivaldi", "Orca"],
 				map("i").to("]", ["left_command", "left_shift"]),
 				map("u").to("[", ["left_command", "left_shift"]),
-			]),
+			),
 			// next previous tab
-			...withCondition(
-				ifApp({
-					file_paths: ["Arc.app", "Zen"],
-				}),
-			)([
+			...inApps(
+				["Arc.app", "Zen"],
 				map("i").to("down_arrow", ["left_command", "left_option"]),
 				map("u").to("up_arrow", ["left_command", "left_option"]),
-			]),
+			),
 			...togglePanelsGeneric("m", ","),
 			map("w").to("w", ["left_command"]),
 		)
