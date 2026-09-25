@@ -4,6 +4,7 @@ gum = "0.17.0" # Gum 2.0.1 spin echoes terminal capability replies (2026/2027).
 node = "22"
 "npm:typescript-language-server" = "latest"
 "npm:@metabase/cli" = "latest"
+uv = "latest"
 
 [settings]
 # Resolved lazily: mise runs this only when it needs a GitHub token (release
