@@ -34,4 +34,4 @@ append = """
 "zsh/config-metabase/metabase.aliases.zsh" = "~/.config/zsh/metabase.aliases.zsh"
 
 [mise.files]
-"mise/metabase.config.toml" = "~/.config/mise/config.toml"
+"mise-config/metabase.config.toml" = "~/.config/mise/config.toml"

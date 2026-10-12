@@ -6,4 +6,4 @@ append = """
 """
 
 [mise.files]
-"mise/personal.config.toml" = "~/.config/mise/config.toml"
+"mise-config/personal.config.toml" = "~/.config/mise/config.toml"
