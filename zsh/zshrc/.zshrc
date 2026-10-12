@@ -18,8 +18,6 @@ else
 	$(brew --prefix)/opt/fzf/install
 fi
 
-eval "$(mise activate zsh)"
-
 # Starship
 export STARSHIP_CONFIG="$HOME/dotfiles/starship.toml"
 eval "$(starship init zsh)"
@@ -59,3 +57,7 @@ if [[ -d "$HOME/.opencode/bin" ]]; then
     *) export PATH="$HOME/.opencode/bin:$PATH" ;;
   esac
 fi
+
+# mise - must run after every other PATH modification so mise-managed tools win
+# (see `mise doctor`)
+eval "$(mise activate zsh)"
