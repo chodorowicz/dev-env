@@ -59,5 +59,8 @@ if [[ -d "$HOME/.opencode/bin" ]]; then
 fi
 
 # mise - must run after every other PATH modification so mise-managed tools win
-# (see `mise doctor`)
+# (see `mise doctor`). Launchers like Orca start zsh with a PATH captured from an
+# already-activated shell, so it carries stale mise dirs; mise then updates those
+# in place (at the end) instead of prepending. Drop them so activation starts fresh.
+path=(${path:#$HOME/.local/share/mise/*})
 eval "$(mise activate zsh)"
