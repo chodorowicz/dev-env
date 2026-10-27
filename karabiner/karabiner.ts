@@ -31,6 +31,7 @@ import { togglePanels } from "./modifications/ui-controls.ts";
 import { capsWordRule } from "./modifications/caps-word.ts";
 import { appSwitcherLayer } from "./modifications/app-switcher-layer.ts";
 import { mediaKeys } from "./modifications/media-keys.ts";
+import { rightCommandToCommandTab } from "./modifications/right-command-to-command-tab.ts";
 
 export function deleteWord() {
 	return rule("test").manipulators([
@@ -185,6 +186,7 @@ writeToProfile(
 		// rectangleWindowNavigation(),
 		...navigationLayer(),
 		...appSwitcherLayer(),
+		rightCommandToCommandTab(),
 		// navigationLayer2(),
 		hrmRule,
 		// deleteWord(),
