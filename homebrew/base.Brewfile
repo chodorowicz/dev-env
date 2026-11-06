@@ -80,7 +80,6 @@ cask "signal"
 cask "telegram"
 
 # browsers
-cask "arc"
 cask "google-chrome"
 cask "vivaldi"
 cask "opera"
