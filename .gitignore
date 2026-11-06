@@ -2,3 +2,5 @@
 .dotter/cache*
 .dotter/cache.tom
 .claude/settings.local.json
+.clj-kondo/.cache/
+.lsp/.cache/
