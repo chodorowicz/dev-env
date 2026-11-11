@@ -19,10 +19,12 @@
 [merge]
 	tool = Kaleidoscope
 
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path "$MERGED" -- "$LOCAL" "$REMOTE"
-	path = /usr/local/bin
+[mergetool]
 	prompt = false
+
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output "$MERGED" --base "$BASE" -- "$LOCAL" --snapshot "$REMOTE" --snapshot
+	trustExitCode = true
 
 [diff]
 	tool = Kaleidoscope
@@ -33,7 +35,6 @@
 
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path "$MERGED" -- "$LOCAL" "$REMOTE"
-	path = /usr/local/bin
 	prompt = false
 
 [commit]
