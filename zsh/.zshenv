@@ -27,3 +27,11 @@ fi
 alias python='python3'
 
 export NODE_OPTIONS="--max-old-space-size=8192"
+
+# mise shims for non-interactive shells (agent Bash tools, scripts): `mise activate` in .zshrc
+# only updates PATH from prompt/chpwd hooks, which never fire there, so per-project tools from
+# mise.toml (java, clojure) would be missing. Interactive shells still run `mise activate`,
+# which puts the real install dirs ahead of these shims.
+if command -v mise >/dev/null 2>&1; then
+	eval "$(mise activate zsh --shims)"
+fi

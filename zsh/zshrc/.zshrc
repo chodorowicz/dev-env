@@ -61,6 +61,7 @@ fi
 # mise - must run after every other PATH modification so mise-managed tools win
 # (see `mise doctor`). Launchers like Orca start zsh with a PATH captured from an
 # already-activated shell, so it carries stale mise dirs; mise then updates those
-# in place (at the end) instead of prepending. Drop them so activation starts fresh.
-path=(${path:#$HOME/.local/share/mise/*})
+# in place (at the end) instead of prepending. Drop them so activation starts fresh; keep the
+# shims dir from .zshenv as the fallback for shells where the mise hook never runs.
+path=(${path:#$HOME/.local/share/mise/installs/*})
 eval "$(mise activate zsh)"
