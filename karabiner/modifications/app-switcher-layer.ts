@@ -29,13 +29,22 @@ const navManipulators = () =>
 	NAV.map(([from, to]) => map(from, undefined, "any").to(to, "left_command"));
 
 // One-handed trigger: hold `/` to become ⌘ (no switcher yet, so a slow `/`
-// tap never jumps to the last app). l/j open the switcher and step
-// forward/back (⌘Tab / ⌘⇧Tab); once it's open, i/k move up/down (⌘↑/⌘↓).
+// tap never jumps to the last app). l/j open the switcher (⌘Tab / ⌘⇧Tab);
+// once it's open, ijkl move the selection one step with ⌘+arrows.
 // Releasing `/` picks.
 function slashSwitcherLayer() {
 	const slashLayer = holdTapLayer("/")
 		.onHold("left_command")
 		.tappingTerm(TAPPING_TERM)
+		// Switcher open: ijkl -> ⌘+arrows (one item per press).
+		.holdOnOtherKeyPressManipulators(
+			NAV.map(([from, to]) =>
+				map(from, undefined, "any")
+					.to(to, "left_command")
+					.condition(ifVar(SLASH_SWITCHER_VAR, 1)),
+			),
+		)
+		// Switcher closed: l/j open it.
 		.permissiveHoldManipulators(
 			map("l", undefined, "any")
 				.to("tab", "left_command")
@@ -44,15 +53,6 @@ function slashSwitcherLayer() {
 				.to("tab", ["left_command", "left_shift"])
 				.to(toSetVar(SLASH_SWITCHER_VAR, 1)),
 		)
-		// i/k only steer once l/j has opened the switcher.
-		.holdOnOtherKeyPressManipulators([
-			map("i", undefined, "any")
-				.to("up_arrow", "left_command")
-				.condition(ifVar(SLASH_SWITCHER_VAR, 1)),
-			map("k", undefined, "any")
-				.to("down_arrow", "left_command")
-				.condition(ifVar(SLASH_SWITCHER_VAR, 1)),
-		])
 		// Replay `/` + key on fast rolls instead of swallowing the `/`.
 		.echoKeys(...qwertyKeys.filter((k) => !["j", "l", "/"].includes(k)))
 		.build();
