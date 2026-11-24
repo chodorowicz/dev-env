@@ -1,35 +1,26 @@
-import {
-	rule,
-	withModifier,
-	withCondition,
-	ifApp,
-	map,
-	duoLayer,
-	FromKeyParam,
-} from "karabiner.ts";
+import { rule, withModifier, map, FromKeyParam } from "karabiner.ts";
 import { inApps } from "../helpers/apps.ts";
+
 export function togglePanelsGeneric(
 	leftPanel: FromKeyParam,
 	rightPanel: FromKeyParam
 ) {
-	return inApps(
-		["Code", "Cursor"],
-		map(rightPanel).to("b", ["left_command", "left_option"]),
-		map(leftPanel).to("b", ["left_command"]),
-	);
+	return [
+		...inApps(
+			["Code", "Cursor"],
+			map(rightPanel).to("b", ["left_command", "left_option"]),
+			map(leftPanel).to("b", ["left_command"]),
+		),
+		...inApps(
+			["Zed"],
+			map(rightPanel).to("r", ["left_command"]),
+			map(leftPanel).to("b", ["left_command"]),
+		),
+	];
 }
 
 export function togglePanels() {
 	return rule("Toggle panels").manipulators([
-		withModifier("Meh")([
-			withCondition(
-				ifApp({
-					file_paths: ["Code", "Cursor"],
-				})
-			)([
-				map("\\").to("b", ["left_command", "left_option"]),
-				map("'").to("b", ["left_command"]),
-			]),
-		]),
+		withModifier("Meh")(togglePanelsGeneric("'", "\\")),
 	]);
 }
