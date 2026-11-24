@@ -16,6 +16,11 @@ export function togglePanelsGeneric(
 			map(rightPanel).to("r", ["left_command"]),
 			map(leftPanel).to("b", ["left_command"]),
 		),
+		...inApps(
+			["Orca"],
+			map(rightPanel).to("l", ["left_command"]),
+			map(leftPanel).to("b", ["left_command"]),
+		),
 	];
 }
 
