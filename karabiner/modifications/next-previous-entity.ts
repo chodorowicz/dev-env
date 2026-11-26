@@ -31,6 +31,11 @@ function nextPreviousEntityWithModifier() {
 				map("u").to("up_arrow", ["left_command", "left_option"]),
 			),
 			...togglePanelsGeneric("m", ","),
+			// focus the file explorer
+			...inApps(
+				["Code", "Zed"],
+				map("e").to("e", ["left_command", "left_shift"]),
+			),
 			map("w").to("w", ["left_command"]),
 		)
 		.echoKeys(...qwertyKeys)
