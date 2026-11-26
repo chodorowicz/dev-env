@@ -5,7 +5,6 @@ cask "font-monaspace"
 
 # dev
 cask "visual-studio-code"
-cask "cursor"
 cask "trae"
 cask "zed"
 brew "micro" # text editor

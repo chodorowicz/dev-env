@@ -66,7 +66,6 @@ export function appsLauncherWithManipulator() {
 					["r", "Orca", []],
 					["p", "1Password", [["o", "Postman"]]],
 					["v", "Visual Studio Code", [["i", "Vivaldi"]]],
-					["u", "Cursor", []],
 					["w", "WebStorm", []],
 					["x", "Zed", []],
 					["z", "Zen", []],

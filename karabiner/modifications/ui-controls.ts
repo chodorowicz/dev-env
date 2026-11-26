@@ -7,7 +7,7 @@ export function togglePanelsGeneric(
 ) {
 	return [
 		...inApps(
-			["Code", "Cursor"],
+			["Code"],
 			map(rightPanel).to("b", ["left_command", "left_option"]),
 			map(leftPanel).to("b", ["left_command"]),
 		),

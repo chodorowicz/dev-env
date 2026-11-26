@@ -20,7 +20,7 @@ function nextPreviousEntityWithModifier() {
 				map("u").to("left_arrow", ["left_option", "left_command"]),
 			),
 			...inApps(
-				["Obsidian", "Code", "Cursor", "iTerm", "Zed", "Vivaldi", "Orca"],
+				["Obsidian", "Code", "iTerm", "Zed", "Vivaldi", "Orca"],
 				map("i").to("]", ["left_command", "left_shift"]),
 				map("u").to("[", ["left_command", "left_shift"]),
 			),
