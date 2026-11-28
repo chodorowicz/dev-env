@@ -65,3 +65,6 @@ fi
 # shims dir from .zshenv as the fallback for shells where the mise hook never runs.
 path=(${path:#$HOME/.local/share/mise/installs/*})
 eval "$(mise activate zsh)"
+
+# atuin - after mise so `atuin init` sees the final PATH
+eval "$(atuin init zsh)"

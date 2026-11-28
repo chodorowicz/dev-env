@@ -16,6 +16,7 @@ brew "git"
 brew "starship"
 brew "bat"
 brew "fzf"
+brew "atuin" # shell history; config in atuin/config.toml
 brew "mas" # Mac App Store CLI
 brew "glab"
 brew "ripgrep"

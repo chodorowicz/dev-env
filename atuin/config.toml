@@ -1,0 +1,22 @@
+# Atuin config - only the settings that differ from defaults.
+# Full reference: https://docs.atuin.sh/configuration/config/
+
+search_mode = "daemon-fuzzy"
+enter_accept = true
+
+[daemon]
+enabled = true
+autostart = true
+
+[pty_proxy]
+# Off: when `atuin init` re-execs the iTerm2 login shell inside the proxy, it dies with
+# "atuin pty-proxy: Input/output error (os error 5)" and every new tab closes at once.
+# The proxy works in a plain PTY, so the failure is specific to iTerm's startup.
+# Output capture ([output]) needs the proxy, so it records nothing while this is off.
+enabled = false
+
+[threads]
+enabled = true
+
+[output]
+enabled = true
